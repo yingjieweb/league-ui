@@ -1,6 +1,7 @@
 <template>
-  <button class="lol-button" :class="{[`icon-${iconPosition}`]: true}">
-    <lol-icon class="icon" v-if="icon" :name="icon"></lol-icon>
+  <button class="lol-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
+    <lol-icon class="icon" v-if="icon && !isLoading" :name="icon"></lol-icon>
+    <lol-icon class="loading icon" v-if="isLoading" name="loading"></lol-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -17,15 +18,28 @@
       iconPosition: {
         type: String,
         default: 'left',
-        validator(iconPosition){
+        validator(iconPosition) {
           return ['left', 'right'].indexOf(iconPosition) > -1;
         }
-      }
+      },
+      isLoading: {
+        type: Boolean,
+        default: false
+      },
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   .lol-button {
     font-size: var(--font-size);
     height: var(--button-height);
@@ -68,6 +82,10 @@
         order: 1;
         margin: 0 4px;
       }
+    }
+
+    .loading {
+      animation: spin 1.5s infinite linear;
     }
   }
 
