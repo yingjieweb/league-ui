@@ -12,7 +12,8 @@
   },
   "keywords": [
     "Vue",
-    "UI"
+    "UI",
+    "League"
   ],
   "author": "yingjieweb",
   "license": "MIT",
@@ -22,5 +23,8 @@
   "homepage": "https://github.com/yingjieweb/league-ui#readme",
   "dependencies": {
     "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
   }
 }
