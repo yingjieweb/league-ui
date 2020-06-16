@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>league-ui</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --button-height: 32px;
+      --font-size: 14px;
+      --button-bg: white;
+      --button-active-bg: #eee;
+      --border-radius: 4px;
+      --color: #333;
+      --border-color: #999;
+      --border-color-hover: #666;
+    }
+
+    body {
+      font-size: var(--font-size);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <lol-button :is-loading="isLoading1" @click="isLoading1 = !isLoading1"> abcdef</lol-button>
+    <lol-button icon="settings" :is-loading="isLoading2" @click="isLoading2 = !isLoading2"> abcdef</lol-button>
+    <lol-button icon="settings" icon-position="right" :is-loading="isLoading3" @click="isLoading3 = !isLoading3"> abcdef</lol-button>
+
+    <lol-button-group>
+      <lol-button icon="up">上一页</lol-button>
+      <lol-button icon="up">上一页</lol-button>
+      <lol-button icon="down" icon-position="right">下一页</lol-button>
+    </lol-button-group>
+  </div>
+</body>
+<script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_1884753_e00cq0ngiwo.js"></script>
+</html>
