@@ -9,8 +9,13 @@
 </template>
 
 <script>
+  import LolIcon from "../Icon/LolIcon";
+
   export default {
     name: "LolButton",
+    components: {
+      'lol-icon': LolIcon
+    },
     props: {
       icon: {
         type: String
