@@ -5,6 +5,8 @@
 </template>
 
 <script>
+  import '../../assets/icons/index.js'
+
   export default {
     name: "LolIcon",
     props: ['name']
