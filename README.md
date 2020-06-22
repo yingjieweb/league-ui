@@ -1,10 +1,11 @@
 ## league-ui
 <p align="center">
-    <a href="https://www.travis-ci.org/yingjieweb/league-ui"><img src="https://www.travis-ci.org/yingjieweb/league-ui.svg?branch=master"></a>
-    <a href="https://www.npmjs.com/package/league-ui"><img src="https://img.shields.io/npm/v/league-ui?color=%230E80C0"></a>
-    <a href="https://github.com/yingjieweb/league-ui"><img src="https://img.shields.io/github/stars/yingjieweb/league-ui?style=social"></a>
+    <a href="https://www.travis-ci.org/yingjieweb/league-ui"><img src="https://www.travis-ci.org/yingjieweb/league-ui.svg?branch=master" alt="Build Status"></a>
+    <a href="https://www.npmjs.com/package/league-ui"><img src="https://img.shields.io/npm/v/league-ui?color=%230E80C0" alt="Version"></a>
+    <a href="https://github.com/yingjieweb/league-ui"><img src="https://img.shields.io/github/license/yingjieweb/league-ui" alt="License"></a>
+    <a href="https://github.com/yingjieweb/league-ui"><img src="https://img.shields.io/github/stars/yingjieweb/league-ui?style=social" alt="GitHub Stars"></a>
 </p>
-League UI library for Web APP, built with Vue.js.
+<h5 align="center">League UI library for Web APP, built with Vue.js.</h5>
 
 ## Install
 ```
