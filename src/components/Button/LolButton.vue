@@ -1,6 +1,6 @@
 <template>
   <button class="lol-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
-    <lol-icon class="icon" v-if="icon && !isLoading" :name="icon"></lol-icon>
+    <lol-icon class="icon" v-if="iconName && !isLoading" :name="iconName"></lol-icon>
     <lol-icon class="loading icon" v-if="isLoading" name="loading"></lol-icon>
     <div class="content">
       <slot></slot>
@@ -17,7 +17,7 @@
       'lol-icon': LolIcon
     },
     props: {
-      icon: {
+      iconName: {
         type: String
       },
       iconPosition: {
