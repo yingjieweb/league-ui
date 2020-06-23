@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/yingjieweb/league-ui">
-        <img width="300" src="http://game.gtimg.cn/images/lol/v3/logo-public.png" alt="League UI">
+        <img width="240" src="https://sta-op.douyucdn.cn/dycatr/7e189c7fedb3aa96e84d9fefcc892ec1.png?v=20200407" alt="League UI">
     </a>
 </p>
 <p align="center">
@@ -9,7 +9,9 @@
     <a href="https://github.com/yingjieweb/league-ui"><img src="https://img.shields.io/github/license/yingjieweb/league-ui" alt="License"></a>
     <a href="https://github.com/yingjieweb/league-ui"><img src="https://img.shields.io/github/stars/yingjieweb/league-ui?style=social" alt="GitHub Stars"></a>
 </p>
-<h4 align="center">League UI library for Web APP, built with Vue.js.</h4>
+<h3 align="center">League UI library for Web APP, built with Vue.js.</h3>
+
+--------
 
 ## Install
 ```
