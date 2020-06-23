@@ -26,20 +26,38 @@
 
     body {
       font-size: var(--font-size);
+      background-color: gray;
     }
   </style>
 </head>
 <body>
   <div id="app">
-    <lol-button :is-loading="isLoading1" @click="isLoading1 = !isLoading1"> abcdef</lol-button>
-    <lol-button icon="settings" :is-loading="isLoading2" @click="isLoading2 = !isLoading2"> abcdef</lol-button>
-    <lol-button icon="settings" icon-position="right" :is-loading="isLoading3" @click="isLoading3 = !isLoading3"> abcdef</lol-button>
+    <section style="margin-top: 50px">
+      <h2>Button</h2>
+      <h3>Button Types</h3>
+      <lol-button type="primary">button</lol-button>
+      <lol-button type="success">button</lol-button>
+      <lol-button type="warning">button</lol-button>
+      <lol-button type="info">button</lol-button>
+      <lol-button type="danger">button</lol-button>
+      <br><br>
 
-    <lol-button-group>
-      <lol-button icon="up">上一页</lol-button>
-      <lol-button icon="up">上一页</lol-button>
-      <lol-button icon="down" icon-position="right">下一页</lol-button>
-    </lol-button-group>
+      <h3>Button with Icons</h3>
+      <lol-button icon-name="settings">button</lol-button>
+      <lol-button icon-name="settings" icon-position="right">button</lol-button>
+
+      <lol-button icon-name="loading" :is-loading="true">button</lol-button>
+      <lol-button icon-name="loading" :is-loading="isLoading1" @click="isLoading1 = !isLoading1">button</lol-button>
+      <lol-button icon-name="loading" icon-position="right" :is-loading="isLoading2" @click="isLoading2 = !isLoading2">button</lol-button>
+      <br><br>
+
+      <h3>Button Group</h3>
+      <lol-button-group>
+        <lol-button icon-name="up">上一页</lol-button>
+        <lol-button icon-name="up">上一页</lol-button>
+        <lol-button icon-name="down" icon-position="right">下一页</lol-button>
+      </lol-button-group>
+    </section>
   </div>
 </body>
 <script src="./src/app.js"></script>
