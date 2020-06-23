@@ -11,7 +11,7 @@
       for (let node of this.$el.children) {
         let name = node.nodeName.toLowerCase();
         if (name !== 'button') {
-          console.warn(`ow-button-group component should have lol-button child, but detect <${name}>`);
+          console.warn(`lol-button-group component should have lol-button child, but detect <${name}>`);
         }
       }
     }
@@ -27,7 +27,7 @@
       border-radius: 0;
 
       &:not(:first-child) {
-        margin-left: -1px;
+        margin-left: 1px;
       }
 
       &:first-child {

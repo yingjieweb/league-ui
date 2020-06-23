@@ -1,10 +1,14 @@
 <template>
-  <button class="lol-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
-    <lol-icon class="icon" v-if="iconName && !isLoading" :name="iconName"></lol-icon>
-    <lol-icon class="loading icon" v-if="isLoading" name="loading"></lol-icon>
-    <div class="content">
+  <button :class="classes" @click="$emit('click')">
+    <lol-icon
+            class="lol-button-icon"
+            color="#fff"
+            :is-loading="isLoading"
+            :name="iconName">
+    </lol-icon>
+    <span class="lol-button-content">
       <slot></slot>
-    </div>
+    </span>
   </button>
 </template>
 
@@ -31,20 +35,27 @@
         type: Boolean,
         default: false
       },
+      type: {
+        type: String,
+        default: 'primary',
+        validator(type) {
+          return ['primary', 'warning', 'danger', 'info', 'success'].indexOf(type) > -1
+        }
+      }
+    },
+    computed: {
+      classes() {
+        return [
+          'lol-button',
+          { [`lol-button-icon-${this.iconPosition}`]: true, },
+          `lol-button-${this.type}`
+        ]
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
   .lol-button {
     font-size: var(--font-size);
     height: var(--button-height);
@@ -56,9 +67,13 @@
     justify-content: center;
     align-items: center;
     vertical-align: middle;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    cursor: pointer;
 
     &:hover {
-      border-color: var(--border-color-hover);
+      box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
     }
 
     &:active {
@@ -69,28 +84,22 @@
       outline: none;
     }
 
-    > .icon {
-      order: 1;
+    > .lol-button-icon {order: 1;}
+    > .lol-button-content {order: 2; margin: 0 4px;}
+
+    &-icon-right {
+      > .lol-button-icon {order: 2;}
+      > .lol-button-content {order: 1; margin: 0 4px;}
     }
 
-    > .content {
-      order: 2;
-      margin: 0 4px;
-    }
+    &-primary { background: #79BBFF; }
+    &-success { background: #67C23A; }
+    &-warning { background: #E6A23C; }
+    &-danger { background: #F56C6C; }
+    &-info { background: #909399; }
 
-    &.icon-right {
-      > .icon {
-        order: 2;
-      }
-
-      > .content {
-        order: 1;
-        margin: 0 4px;
-      }
-    }
-
-    .loading {
-      animation: spin 1.5s infinite linear;
+    & + & {
+      margin-left: 4px;
     }
   }
 
