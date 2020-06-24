@@ -3,11 +3,15 @@ import LolButton from "./components/Button/LolButton";
 import LolIcon from "./components/Icon/LolIcon";
 import LolButtonGroup from "./components/Button/LolButtonGroup";
 import LolInput from "./components/Input/LolInput";
+import LolRow from "./components/Layoyt/LolRow";
+import LolCol from "./components/Layoyt/LolCol";
 
 Vue.component('lol-button', LolButton);
 Vue.component('lol-icon', LolIcon);
 Vue.component('lol-button-group', LolButtonGroup);
 Vue.component('lol-input', LolInput);
+Vue.component('lol-row', LolRow);
+Vue.component('lol-col', LolCol);
 
 new Vue({
   el: '#app',
