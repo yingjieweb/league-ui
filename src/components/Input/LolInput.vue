@@ -72,7 +72,7 @@
     computed: {
       wrapperClasses() {
         return [
-          `lol-input-wrapper-${this.hintType}`
+          this.hintType && `lol-input-wrapper-${this.hintType}`
         ]
       },
       inputStyles() {
