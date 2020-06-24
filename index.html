@@ -33,7 +33,7 @@
 <body>
   <div id="app">
     <section style="margin-top: 50px">
-      <h2>Button</h2>
+      <h2>Button 按钮</h2>
       <h3>Button Types</h3>
       <lol-button type="primary">button</lol-button>
       <lol-button type="success">button</lol-button>
@@ -57,6 +57,14 @@
         <lol-button icon-name="up">上一页</lol-button>
         <lol-button icon-name="down" icon-position="right">下一页</lol-button>
       </lol-button-group>
+    </section>
+
+    <section style="margin-top: 50px">
+      <h2>Icon 图标</h2>
+      <lol-icon name="settings"></lol-icon>
+      <lol-icon name="settings" color="#F56C6C"></lol-icon>
+      <lol-icon name="loading" :is-loading="true"></lol-icon>
+      <lol-icon name="settings" size="1.5em"></lol-icon>
     </section>
   </div>
 </body>
