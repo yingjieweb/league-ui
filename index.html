@@ -29,36 +29,34 @@
       background-color: gray;
     }
   </style>
+  <style>
+    .demoCol{
+      height: 50px;
+      border: 1px solid red;
+      background-color: #33A03D;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
-    <section style="margin-top: 50px">
+    <section style="margin-top: 50px;">
       <h2>Row and Col</h2>
       <lol-row>
-        <lol-col span="24">1</lol-col>
+        <lol-col class="demoCol" span="8">
+          <lol-row align="center">
+            <lol-col class="demoCol" span="2">1</lol-col>
+            <lol-col class="demoCol">2</lol-col>
+            <lol-col class="demoCol">3</lol-col>
+            <lol-col class="demoCol">4</lol-col>
+          </lol-row>
+        </lol-col>
+        <lol-col class="demoCol" span="8"></lol-col>
+        <lol-col class="demoCol" span="8"></lol-col>
       </lol-row>
       <lol-row>
-        <lol-col span="12">1</lol-col>
-        <lol-col span="12">2</lol-col>
-      </lol-row>
-      <lol-row>
-        <lol-col span="8">1</lol-col>
-        <lol-col span="8">2</lol-col>
-        <lol-col span="8">3</lol-col>
-      </lol-row>
-      <lol-row>
-        <lol-col span="6">1</lol-col>
-        <lol-col span="6">2</lol-col>
-        <lol-col span="6">3</lol-col>
-        <lol-col span="6">4</lol-col>
-      </lol-row>
-      <lol-row>
-        <lol-col span="4">1</lol-col>
-        <lol-col span="4">2</lol-col>
-        <lol-col span="4">3</lol-col>
-        <lol-col span="4">4</lol-col>
-        <lol-col span="4">5</lol-col>
-        <lol-col span="4">6</lol-col>
+        <lol-col class="demoCol" span="9"></lol-col>
+        <lol-col class="demoCol" span="6"></lol-col>
+        <lol-col class="demoCol" span="9"></lol-col>
       </lol-row>
     </section>
 

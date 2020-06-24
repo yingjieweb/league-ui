@@ -10,17 +10,27 @@
     props: {
       span: {
         type: [Number, String]
+      },
+      offset: {
+        type: [Number, String]
       }
+    },
+    data() {
+      return { gutter: 0 }
     },
     computed: {
       classes() {
         return [
           'lol-col',
-          `lol-col-${this.span}`
+          this.span && `lol-col-${this.span}`,
+          this.offset && `offset-${this.offset}`
         ]
       },
       styles() {
-        return {}
+        return {
+          paddingLeft: `${this.gutter / 2}px`,
+          paddingRight: `${this.gutter / 2}px`
+        }
       }
     }
   }
@@ -28,16 +38,17 @@
 
 <style lang="scss" scoped>
   .lol-col {
-    height: 100px;
-    width: 50%;
-    border: 1px solid green;
-    background-color: #99A9BF;
-    border-radius: 12px;
-
-    $class-prefix: lol-col-;
+    $span-class-prefix: lol-col-;
     @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
+      &.#{$span-class-prefix}#{$n} {
         width: ($n/24)*100%;
+      }
+    }
+
+    $offset-class-prefix: offset-;
+    @for $n from 1 through 24 {
+      &.#{$offset-class-prefix}#{$n} {
+        margin-left: ($n/24)*100%;
       }
     }
   }
