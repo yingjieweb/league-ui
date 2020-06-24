@@ -14,6 +14,7 @@ new Vue({
   data: {
     isLoading1: true,
     isLoading2: false,
+    inputMessage: 'xixixi'
   },
   methods: {
     inputChange(value){

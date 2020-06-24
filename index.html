@@ -33,6 +33,34 @@
 <body>
   <div id="app">
     <section style="margin-top: 50px">
+      <h2>Input 输入框</h2>
+      <h3>Basic Input</h3>
+      <lol-input value="erha"></lol-input>
+      <br><br>
+
+      <h3>Disable/ReadOnly Input</h3>
+      <lol-input value="erha" disabled></lol-input>
+      <lol-input value="erha" readonly></lol-input>
+      <br><br>
+
+      <h3>Set Placeholder</h3>
+      <lol-input placeholder="我是提示信息"></lol-input>
+      <br><br>
+
+      <h3>Set HintMessage/HintType/HintIcon</h3>
+      <lol-input icon-name="error" hint="设置" hint-type="danger"></lol-input>
+      <br><br>
+
+      <h3>support change/focus/blur/input event</h3>
+      <lol-input @change="inputChange"></lol-input>
+      <br><br>
+
+      <h3>support v-model</h3>
+      <lol-input v-model="inputMessage"></lol-input>
+      {{inputMessage}}
+    </section>
+
+    <section style="margin-top: 50px">
       <h2>Button 按钮</h2>
       <h3>Button Types</h3>
       <lol-button type="primary">button</lol-button>
