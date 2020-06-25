@@ -30,10 +30,10 @@
     },
     computed: {
       classes() {
-        const devices = ['iPad', 'narrowPC', 'pc', 'widePc']
+        const devices = ['iPad', 'narrowPc', 'pc', 'widePc']
         const classes = [
-          this.span && `lol-col-phone-span-${this.span}`,
-          this.offset && `lol-col-phone-offset-${this.offset}`
+          this.span && `lol-col-span-${this.span}`,
+          this.offset && `lol-col-offset-${this.offset}`
         ]
         devices.forEach((device) => {
           if (this[device]) {
@@ -59,14 +59,14 @@
 
 <style lang="scss" scoped>
   .lol-col {
-    $phone-span-prefix: lol-col-phone-span-;
+    $phone-span-prefix: lol-col-span-;
     @for $n from 0 through 24 {
       &.#{$phone-span-prefix}#{$n} {
         width: ($n/24)*100%;
       }
     }
 
-    $phone-offset-prefix: lol-col-phone-offset-;
+    $phone-offset-prefix: lol-col-offset-;
     @for $n from 0 through 24 {
       &.#{$phone-offset-prefix}#{$n} {
         margin-left: ($n/24)*100%;
