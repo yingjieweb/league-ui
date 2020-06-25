@@ -40,23 +40,11 @@
 <body>
   <div id="app">
     <section style="margin-top: 50px;">
-      <h2>Row and Col</h2>
+      <h2>Row and Col 栅格布局</h2>
       <lol-row>
-        <lol-col class="demoCol" span="8">
-          <lol-row align="center">
-            <lol-col class="demoCol" span="2">1</lol-col>
-            <lol-col class="demoCol">2</lol-col>
-            <lol-col class="demoCol">3</lol-col>
-            <lol-col class="demoCol">4</lol-col>
-          </lol-row>
-        </lol-col>
-        <lol-col class="demoCol" span="8"></lol-col>
-        <lol-col class="demoCol" span="8"></lol-col>
-      </lol-row>
-      <lol-row>
-        <lol-col class="demoCol" span="9"></lol-col>
-        <lol-col class="demoCol" span="6"></lol-col>
-        <lol-col class="demoCol" span="9"></lol-col>
+        <lol-col class="demoCol" span="8" :phone="{span: 12, offset: 0}"></lol-col>
+        <lol-col class="demoCol" span="8" :phone="{span: 12, offset: 0}"></lol-col>
+        <lol-col class="demoCol" span="8" :phone="{span: 12, offset: 0}"></lol-col>
       </lol-row>
     </section>
 

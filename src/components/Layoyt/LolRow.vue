@@ -44,7 +44,7 @@
 <style lang="scss" scoped>
   .lol-row {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 
     &-align-left {
       justify-content: flex-start;
