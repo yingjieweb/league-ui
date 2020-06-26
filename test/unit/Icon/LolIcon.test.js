@@ -1,6 +1,6 @@
 import Vue from 'vue'
 const expect = chai.expect;
-import LolIcon from "../src/components/Icon/LolIcon";
+import LolIcon from "../../../src/components/Icon/LolIcon";
 
 Vue.config.productionTip = false
 Vue.config.devtools = false

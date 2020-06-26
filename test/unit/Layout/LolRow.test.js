@@ -1,8 +1,8 @@
 import Vue from 'vue'
 
 const expect = chai.expect
-import LolRow from "../src/components/Layoyt/LolRow"
-import LolCol from "../src/components/Layoyt/LolCol"
+import LolRow from "../../../src/components/Layoyt/LolRow"
+import LolCol from "../../../src/components/Layoyt/LolCol"
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
