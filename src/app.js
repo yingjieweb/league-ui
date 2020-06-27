@@ -39,7 +39,16 @@ new Vue({
       console.log(value)
     },
     showToast() {
-      this.$toast('this is a message!')
+      this.$toast('I am <strong>加粗文字</strong>', {
+        closeButton: {
+          text: '知道了',
+          callback: (toast) => {
+            toast.log()
+            console.log('用户知道了')
+          }
+        },
+        enableHtml: true
+      })
     }
   }
 })
