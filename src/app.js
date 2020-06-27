@@ -39,7 +39,7 @@ new Vue({
       console.log(value)
     },
     showToast() {
-      this.$toast('I am <strong>加粗文字</strong>', {
+      this.$toast(`I am <strong>加粗文字</strong> ${parseInt(Math.random()*100)}`, {
         closeButton: {
           text: '知道了',
           callback: (toast) => {
