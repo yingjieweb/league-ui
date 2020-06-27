@@ -1,5 +1,5 @@
 <template>
-  <div class="lol-toast" ref="lolToast">
+  <div :class="classes" ref="lolToast">
     <slot v-if="!enableHtml"></slot>
     <div v-else v-html="this.$slots.default"></div>
 
@@ -18,7 +18,7 @@
       },
       autoCloseDelay: {
         type: Number,
-        default: 3
+        default: 30
       },
       closeButton: {
         type: Object,
@@ -32,11 +32,26 @@
       enableHtml: {
         type: Boolean,
         default: false
+      },
+      position: {
+        type: String,
+        default: 'top',
+        validator: (position) => {
+          return ['top', 'middle', 'bottom'].indexOf(position) > -1
+        }
       }
     },
     mounted() {
       this.updateSpaceLineStyle()
       this.executeAutoClose()
+    },
+    computed: {
+      classes() {
+        return [
+            'lol-toast',
+            { [`lol-toast-position-${this.position}`]: true, }
+        ]
+      }
     },
     methods: {
       updateSpaceLineStyle() {
@@ -80,9 +95,7 @@
     line-height: 1.8;
 
     position: fixed;
-    top: 0;
     left: 50%;
-    transform: translateX(-50%);
 
     display: flex;
     align-items: center;
@@ -102,6 +115,19 @@
     .closeButton {
       margin-left: 16px;
       flex-shrink: 0;
+    }
+
+    &-position-top {
+      top: 0;
+      transform: translateX(-50%);
+    }
+    &-position-middle {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &-position-bottom {
+      bottom: 0;
+      transform: translateX(-50%);
     }
   }
 </style>
