@@ -9,5 +9,13 @@ import LolHeader from "./src/components/Container/LolHeader"
 import LolSider from "./src/components/Container/LolSider"
 import LolContent from "./src/components/Container/LolContent"
 import LolFooter from "./src/components/Container/LolFooter"
+import LolToast from "./src/components/Toast/LolToast"
 
-export {LolIcon, LolButton, LolButtonGroup, LolInput, LolRow, LolCol, LolContainer, LolHeader, LolSider, LolContent, LolFooter}
+export {
+  LolIcon,
+  LolButton, LolButtonGroup,
+  LolInput,
+  LolRow, LolCol,
+  LolContainer, LolHeader, LolSider, LolContent, LolFooter,
+  LolToast
+}
