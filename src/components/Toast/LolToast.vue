@@ -89,8 +89,15 @@
   $toast-min-height: 40px;
   $toast-bg: rgba(0, 0, 0, 0.75);
   $toast-border-show: rgba(0, 0, 0, 0.50);
+  $animation-duration: 3000ms;
+
+  @keyframes toast-fade-in {
+    0% {opacity: 0; }
+    100% {opacity: 1;}
+  }
 
   .lol-toast {
+    animation: toast-fade-in $animation-duration;
     min-height: $toast-min-height;
     font-size: $font-size;
     line-height: 1.8;
