@@ -27,8 +27,8 @@ describe('LolToast.vue', () => {
         done()
       })
     })
-    it('renders props.closeButton when passed', () => {
-      const callback = sinon.fake();
+    it('renders props.closeButton when passed', (done) => {
+      const callback = sinon.fake()
       const Constructor = Vue.extend(LolToast)
       const vm = new Constructor({
         propsData: {
@@ -40,8 +40,11 @@ describe('LolToast.vue', () => {
       }).$mount()
       let closeButton = vm.$el.querySelector('.closeButton')
       expect(closeButton.textContent.trim()).to.eq('关闭toast')
-      closeButton.click()
-      expect(callback).to.have.been.called
+      setTimeout(() => {
+        closeButton.click()
+        expect(callback).to.have.been.called
+        done()
+      }, 200)
     })
     it('renders props.enableHtml when passed', () => {
       const Constructor = Vue.extend(LolToast)
