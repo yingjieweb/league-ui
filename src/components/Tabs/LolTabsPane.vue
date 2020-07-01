@@ -1,5 +1,5 @@
 <template>
-  <div class="lol-tabs-pane" @click="xxx">
+  <div class="lol-tabs-pane" :class="classes" v-show="active">
     <slot></slot>
   </div>
 </template>
@@ -7,29 +7,42 @@
 <script>
   export default {
     name: "LolTabsPane",
+    inject: ['eventBus'],
+    data () {
+      return {
+        active: false
+      }
+    },
     props: {
       name: {
         type: String | Number,
         require: true
       }
     },
-    inject: ['eventBus'],
+    computed: {
+      classes () {
+        return {
+          'lol-tabs-pane_active': this.active,
+          'lol-tabs-pane_disabled': this.disabled
+        }
+      }
+    },
     created() {
-      console.log('爷爷给孙子的的eventbus')
-      console.log(this.eventBus)
-
       this.eventBus.$on('update:selected', (name) => {
-        console.log(name)
+        this.active = name === this.name
       })
     },
     methods: {
-      xxx() {
-        this.eventBus.$emit('update:selected', this.name)
-      }
+
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  .lol-tabs-pane {
 
+    &_active  {
+      background-color: red;
+    }
+  }
 </style>

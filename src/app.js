@@ -44,7 +44,7 @@ new Vue({
     isLoading1: true,
     isLoading2: false,
     inputMessage: 'xixixi',
-    selectedTabsItem: 'career'
+    selectedTab: 'career'
   },
   methods: {
     inputChange(value) {

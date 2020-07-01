@@ -1,5 +1,5 @@
 <template>
-  <div class="lol-tabs-item" @click="xxx">
+  <div class="lol-tabs-item" :class="classes" @click="onClickItem">
     <slot></slot>
   </div>
 </template>
@@ -7,6 +7,7 @@
 <script>
   export default {
     name: "LolTabsItem",
+    inject: ['eventBus'],
     props: {
       name: {
         type: String | Number,
@@ -17,17 +18,26 @@
         default: false
       }
     },
-    inject: ['eventBus'],
-    created() {
-      console.log('爷爷给孙子的的eventbus')
-      console.log(this.eventBus)
-
+    data () {
+      return {
+        active: false
+      }
+    },
+    computed: {
+      classes () {
+        return {
+          'lol-tabs-item_active': this.active,
+          'lol-tabs-item_disabled': this.disabled
+        }
+      }
+    },
+    created: function () {
       this.eventBus.$on('update:selected', (name) => {
-        console.log(name)
+        this.active = name === this.name
       })
     },
     methods: {
-      xxx() {
+      onClickItem() {
         this.eventBus.$emit('update:selected', this.name)
       }
     }
@@ -35,5 +45,12 @@
 </script>
 
 <style lang="scss" scoped>
+  .lol-tabs-item {
+    flex-shrink: 0;
+    padding: 0 1em;
 
+    &_active  {
+      background-color: red;
+    }
+  }
 </style>
