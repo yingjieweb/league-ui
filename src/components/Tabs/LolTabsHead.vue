@@ -7,7 +7,12 @@
 
 <script>
   export default {
-    name: "LolTabsHead"
+    name: "LolTabsHead",
+    inject: ['eventBus'],
+    created() {
+      console.log('爷爷给爸爸的eventbus')
+      console.log(this.eventBus)
+    }
   }
 </script>
 

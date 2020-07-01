@@ -5,19 +5,31 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+
   export default {
     name: "LolTabs",
     props: {
       selected: {
         type: String,
-        required : true
+        required: true
       },
       direction: {
         type: String,
         default: 'horizontal',
-        validator (value) {
+        validator(value) {
           return ['horizontal', 'vertical'].indexOf(value) >= 0
         }
+      }
+    },
+    data() {
+      return {
+        eventBus: new Vue()
+      }
+    },
+    provide() {
+      return {
+        eventBus: this.eventBus
       }
     }
   }
