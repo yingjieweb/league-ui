@@ -21,13 +21,13 @@
         default: false
       }
     },
-    data () {
+    data() {
       return {
         active: false
       }
     },
     computed: {
-      classes () {
+      classes() {
         return {
           'lol-tabs-item_active': this.active,
           'lol-tabs-item_disabled': this.disabled
@@ -41,7 +41,9 @@
     },
     methods: {
       onClickItem() {
-        this.eventBus.$emit('update:selected', this.name)
+        if (!this.disabled) {
+          this.eventBus.$emit('update:selected', this.name)
+        }
       }
     }
   }
@@ -55,6 +57,7 @@
     flex-shrink: 0;
     user-select: none;
     position: relative;
+    cursor: pointer;
 
     &-content {
       height: 100%;
@@ -62,6 +65,7 @@
       display: flex;
       align-items: center;
     }
+
     &-line {
       width: 0;
       position: absolute;
@@ -72,20 +76,28 @@
       background: #01FFFF;
       transition: width .3s;
     }
+
     // LolIcon
     svg {
       fill: red;
     }
-    &:hover, &_active {
+
+    &_active {
       color: white;
       background: lavenderblush;
+
       .lol-tabs-item-line {
         width: 100%;
       }
+
       // LolIcon
       svg {
         fill: red;
       }
+    }
+
+    &_disabled {
+      color: #cccccc;
     }
   }
 </style>
