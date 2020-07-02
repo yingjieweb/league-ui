@@ -16,12 +16,13 @@
 
 <style lang="scss" scoped>
   $lol-tabs-head-height: 40px;
+  $lol-tabs-border-color: #DADADA;
 
   .lol-tabs-head {
     height: $lol-tabs-head-height;
     display: flex;
     justify-content: flex-start;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid $lol-tabs-border-color;
 
     &-actions-wrapper {
       margin-left: auto;

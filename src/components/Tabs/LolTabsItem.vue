@@ -50,7 +50,9 @@
 </script>
 
 <style lang="scss" scoped>
-  $lol-tabs-head-height: 40px;
+  $lol-tabs-item-active-bgc: #5D91BC;
+  $lol-tabs-item-line-active-bgc: #79BBFF;
+  $lol-tabs-item-text-active-color: #79BBFF;
 
   .lol-tabs-item {
     height: 100%;
@@ -68,12 +70,12 @@
 
     &-line {
       width: 0;
+      height: 2px;
       position: absolute;
-      height: 3px;
       left: 50%;
       bottom: 0;
       transform: translateX(-50%);
-      background: #01FFFF;
+      background: $lol-tabs-item-line-active-bgc;
       transition: width .3s;
     }
 
@@ -82,9 +84,13 @@
       fill: red;
     }
 
+    &:hover {
+      color: $lol-tabs-item-text-active-color;
+    }
+
     &_active {
-      color: white;
-      background: lavenderblush;
+      color: $lol-tabs-item-text-active-color;
+      background: $lol-tabs-item-active-bgc;
 
       .lol-tabs-item-line {
         width: 100%;
@@ -98,6 +104,7 @@
 
     &_disabled {
       color: #cccccc;
+      cursor: not-allowed;
     }
   }
 </style>
