@@ -1,6 +1,9 @@
 <template>
   <div class="lol-tabs-item" :class="classes" @click="onClickItem">
-    <slot></slot>
+    <div class="lol-tabs-item-content">
+      <slot></slot>
+    </div>
+    <div class="lol-tabs-item-line"></div>
   </div>
 </template>
 
@@ -45,12 +48,44 @@
 </script>
 
 <style lang="scss" scoped>
-  .lol-tabs-item {
-    flex-shrink: 0;
-    padding: 0 1em;
+  $lol-tabs-head-height: 40px;
 
-    &_active  {
-      background-color: red;
+  .lol-tabs-item {
+    height: 100%;
+    flex-shrink: 0;
+    user-select: none;
+    position: relative;
+
+    &-content {
+      height: 100%;
+      padding: 0 1em;
+      display: flex;
+      align-items: center;
+    }
+    &-line {
+      width: 0;
+      position: absolute;
+      height: 3px;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      background: #01FFFF;
+      transition: width .3s;
+    }
+    // LolIcon
+    svg {
+      fill: red;
+    }
+    &:hover, &_active {
+      color: white;
+      background: lavenderblush;
+      .lol-tabs-item-line {
+        width: 100%;
+      }
+      // LolIcon
+      svg {
+        fill: red;
+      }
     }
   }
 </style>

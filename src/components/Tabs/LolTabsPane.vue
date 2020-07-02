@@ -42,7 +42,7 @@
   .lol-tabs-pane {
 
     &_active  {
-      background-color: red;
+      /*background-color: red;*/
     }
   }
 </style>

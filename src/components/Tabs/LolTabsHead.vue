@@ -1,8 +1,8 @@
 <template>
   <div class="lol-tabs-head">
     <slot></slot>
-    <div class="line" ref="line"></div>
-    <div class="actions-wrapper">
+
+    <div class="lol-tabs-head-actions-wrapper">
       <slot name="actions"></slot>
     </div>
   </div>
@@ -10,37 +10,27 @@
 
 <script>
   export default {
-    name: "LolTabsHead",
-    inject: ['eventBus'],
-    created() {
-      console.log('爷爷给爸爸的eventbus')
-      console.log(this.eventBus)
-    }
+    name: "LolTabsHead"
   }
 </script>
 
 <style lang="scss" scoped>
-  $lol-tab-height: 40px;
-  $blue: blue;
-  $border-color: #ddd;
+  $lol-tabs-head-height: 40px;
+
   .lol-tabs-head {
+    height: $lol-tabs-head-height;
     display: flex;
-    height: $lol-tab-height;
     justify-content: flex-start;
-    position: relative;
-    border-bottom: 1px solid $border-color;
-    > .line {
-      position: absolute;
-      bottom: 0;
-      border-bottom: 1px solid $blue;
-      transition: all 350ms;
-    }
-    > .actions-wrapper {
+    border-bottom: 1px solid red;
+
+    &-actions-wrapper {
       margin-left: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 1em;
+      height: 100%;
+    }
+    // LolButton
+    button {
+      height: 100%;
+      border-radius: 0;
     }
   }
 </style>
