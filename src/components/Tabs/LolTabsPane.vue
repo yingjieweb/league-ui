@@ -1,5 +1,5 @@
 <template>
-  <div class="lol-tabs-pane" :class="classes" v-show="active">
+  <div class="lol-tabs-pane" :class="classes" v-show="active" :data-name="name">
     <slot></slot>
   </div>
 </template>
@@ -28,12 +28,11 @@
       }
     },
     created() {
-      this.eventBus.$on('update:selected', (name) => {
-        this.active = name === this.name
-      })
-    },
-    methods: {
-
+      if (this.eventBus) {
+        this.eventBus.$on('update:selected', (name) => {
+          this.active = name === this.name
+        })
+      }
     }
   }
 </script>
