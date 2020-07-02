@@ -55,6 +55,7 @@
   $lol-tabs-item-active-bgc: #5D91BC;
   $lol-tabs-item-line-active-bgc: #79BBFF;
   $lol-tabs-item-text-active-color: #79BBFF;
+  $lol-tabs-item-text-disabled-color: #cccccc;
 
   .lol-tabs-item {
     height: 100%;
@@ -105,8 +106,11 @@
     }
 
     &_disabled {
-      color: #cccccc;
+      color: $lol-tabs-item-text-disabled-color;
       cursor: not-allowed;
+      &:hover {
+        color: $lol-tabs-item-text-disabled-color;
+      }
     }
   }
 </style>
