@@ -33,7 +33,18 @@
       }
     },
     mounted() {
-      this.eventBus.$emit('update:selected', this.selected)
+      this.checkChildren()
+      this.initActiveTab()
+    },
+    methods: {
+      initActiveTab() {
+        this.eventBus.$emit('update:selected', this.selected)
+      },
+      checkChildren() {
+        if (this.$children.length === 0) {
+          console && console.warn && console.warn('LolTabs children should only be LolTabsHead or LolTabsBody')
+        }
+      }
     }
   }
 </script>
