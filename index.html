@@ -43,7 +43,17 @@
 </head>
 <body>
   <div id="app">
-    <section>
+    <section style="margin-top: 50px;">
+      <h2>Popover 弹出框</h2>
+      <lol-popover>
+        <template slot="content">
+          <div>1111111111111111</div>
+        </template>
+        <lol-button>按钮</lol-button>
+      </lol-popover>
+    </section>
+
+    <section style="margin-top: 50px;">
       <h2>Tabs 标签页</h2>
       <lol-tabs :selected.sync="selectedTab">
         <lol-tabs-head>

@@ -17,6 +17,7 @@ import LolTabsHead from "./components/Tabs/LolTabsHead"
 import LolTabsItem from "./components/Tabs/LolTabsItem"
 import LolTabsBody from "./components/Tabs/LolTabsBody"
 import LolTabsPane from "./components/Tabs/LolTabsPane"
+import LolPopover from "./components/LolPopover/LolPopover"
 
 Vue.component('lol-button', LolButton)
 Vue.component('lol-icon', LolIcon)
@@ -36,6 +37,7 @@ Vue.component('lol-tabs-head', LolTabsHead)
 Vue.component('lol-tabs-item', LolTabsItem)
 Vue.component('lol-tabs-body', LolTabsBody)
 Vue.component('lol-tabs-pane', LolTabsPane)
+Vue.component('lol-popover', LolPopover)
 
 
 new Vue({
