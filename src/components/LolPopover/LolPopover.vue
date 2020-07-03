@@ -1,5 +1,5 @@
 <template>
-  <div ref="popover" class="lol-popover" @click="onClick">
+  <div ref="popover" class="lol-popover">
     <div ref="contentWrapper" class="lol-popover-content-wrapper" v-if="visible" :class="contentClasses">
       <slot name="content"></slot>
     </div>
@@ -20,15 +20,44 @@
           return ['top', 'bottom', 'left', 'right'].indexOf(value) > -1
         }
       },
+      trigger: {
+        type: String,
+        default: 'click',
+        validator(trigger) {
+          return ['click', 'hover'].indexOf(trigger) > -1
+        }
+      }
     },
     data() {
       return {
         visible: false,
       }
     },
+    mounted () {
+      if (this.trigger === 'click') {
+        this.$refs.popover.addEventListener('click', this.onClick)
+      } else {
+        this.$refs.popover.addEventListener('mouseenter', this.open)
+        this.$refs.popover.addEventListener('mouseleave', this.close)
+      }
+    },
+    destroyed () {
+      if (this.trigger === 'click') {
+        this.$refs.popover.removeEventListener('click', this.onClick)
+      } else {
+        this.$refs.popover.removeEventListener('mouseenter', this.open)
+        this.$refs.popover.removeEventListener('mouseleave', this.close)
+      }
+    },
     computed: {
       contentClasses() {
         return [`lol-popover-content-wrapper-position-${this.position}`]
+      },
+      openEvent () {
+        return this.trigger === 'click' ? "click" : "mouseenter"
+      },
+      closeEvent () {
+        return this.trigger === 'click' ? "click" : "mouseleave"
       }
     },
     methods: {
