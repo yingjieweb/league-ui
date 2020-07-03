@@ -96,6 +96,14 @@
           </template>
           <lol-button>按钮</lol-button>
         </lol-popover>
+        <hr>
+        <lol-popover position="top">
+          <template slot="content" slot-scope="{close}">
+            <div>Popover Content, Hello World</div>
+            <lol-button @click="close">Cancel</lol-button>
+          </template>
+          <lol-button>Top</lol-button>
+        </lol-popover>
       </div>
     </section>
 

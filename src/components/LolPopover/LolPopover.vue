@@ -1,8 +1,15 @@
 <template>
   <div ref="popover" class="lol-popover">
     <div ref="contentWrapper" class="lol-popover-content-wrapper" v-if="visible" :class="contentClasses">
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
+
+    <!--<transition name="fade">
+      <span ref="contentWrapper" class="lol-popover-content-wrapper" v-if="visible" :class="contentClasses">
+          <slot name="content" :close="close"></slot>
+      </span>
+    </transition>-->
+
     <span ref="triggerWrapper" class="lol-popover-trigger-wrapper">
       <slot></slot>
     </span>
