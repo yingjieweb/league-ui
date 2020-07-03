@@ -18,6 +18,8 @@ import LolTabsItem from "./components/Tabs/LolTabsItem"
 import LolTabsBody from "./components/Tabs/LolTabsBody"
 import LolTabsPane from "./components/Tabs/LolTabsPane"
 import LolPopover from "./components/Popover/LolPopover"
+import LolCollapse from "./components/Collapse/LolCollapse"
+import LolCollapseItem from "./components/Collapse/LolCollapseItem"
 
 Vue.component('lol-button', LolButton)
 Vue.component('lol-icon', LolIcon)
@@ -38,6 +40,8 @@ Vue.component('lol-tabs-item', LolTabsItem)
 Vue.component('lol-tabs-body', LolTabsBody)
 Vue.component('lol-tabs-pane', LolTabsPane)
 Vue.component('lol-popover', LolPopover)
+Vue.component('lol-collapse', LolCollapse)
+Vue.component('lol-collapse-item', LolCollapseItem)
 
 
 new Vue({
