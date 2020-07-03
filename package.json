@@ -4,7 +4,7 @@
   "description": "UI library",
   "main": "dist/index.js",
   "scripts": {
-    "start": "parcel index.html --no-cache",
+    "start": "parcel index.html --no-cache --open",
     "dev-test": "parcel watch test/unit/**/* --no-cache & karma start",
     "test": "parcel build test/unit/**/* --no-cache --no-minify && karma start --single-run"
   },
