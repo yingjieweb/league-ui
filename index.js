@@ -15,7 +15,7 @@ import LolTabsHead from "./src/components/Tabs/LolTabsHead"
 import LolTabsItem from "./src/components/Tabs/LolTabsItem"
 import LolTabsBody from "./src/components/Tabs/LolTabsBody"
 import LolTabsPane from "./src/components/Tabs/LolTabsPane"
-import LolPopover from "./src/components/LolPopover/LolPopover"
+import LolPopover from "./src/components/Popover/LolPopover"
 
 export {
   LolIcon,

@@ -69,7 +69,7 @@
     },
     methods: {
       onClick(event) {
-        // Click button of LolPopover, then open it
+        // Click button of Popover, then open it
         if (this.$refs.triggerWrapper.contains(event.target)) {
           if (this.visible === true) {
             this.close()
@@ -90,7 +90,7 @@
       close() {
         this.visible = false
         this.$emit('close')
-        // Remove event listener after closing LolPopover
+        // Remove event listener after closing Popover
         document.removeEventListener('click', this.onDocClick)
       },
       setContentPosition() {
@@ -123,7 +123,7 @@
         contentWrapper.style.left = positions[this.position].left + 'px'
       },
       onDocClick(event) {
-        // Click outside of LolPopover, then close it
+        // Click outside of Popover, then close it
         if (this.$refs.popover && (this.$refs.popover === event.target || this.$refs.popover.contains(event.target))) {
           return
         }

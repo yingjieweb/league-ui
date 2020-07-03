@@ -17,7 +17,7 @@ import LolTabsHead from "./components/Tabs/LolTabsHead"
 import LolTabsItem from "./components/Tabs/LolTabsItem"
 import LolTabsBody from "./components/Tabs/LolTabsBody"
 import LolTabsPane from "./components/Tabs/LolTabsPane"
-import LolPopover from "./components/LolPopover/LolPopover"
+import LolPopover from "./components/Popover/LolPopover"
 
 Vue.component('lol-button', LolButton)
 Vue.component('lol-icon', LolIcon)
