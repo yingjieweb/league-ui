@@ -57,6 +57,9 @@
         if (this.$refs.popover && (this.$refs.popover === event.target || this.$refs.popover.contains(event.target))) {
           return;
         }
+        if (this.$refs.contentWrapper && (this.$refs.contentWrapper === event.target || this.$refs.contentWrapper.contains(event.target))) {
+          return;
+        }
         this.close();
       },
     }
@@ -64,15 +67,48 @@
 </script>
 
 <style lang="scss" scoped>
+  $border-color: #ddd;
+  $border-radius: 4px;
+
   .lol-popover {
     display: inline-block;
     vertical-align: top;
     position: relative;
   }
+
   .lol-popover-content-wrapper {
     position: absolute;
-    border: 1px solid red;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    padding: 0.5em 1em;
+    margin-top: -10px;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.5));
+    background-color: white;
     transform: translateY(-100%);
+    max-width: 20em;
+    word-break: break-all;
+
+    &::before, &::after {
+      content: '';
+      display: block;
+      border: 10px solid transparent;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+    &::before {
+      border-top-color: $border-color;
+      border-bottom: none;
+      top: 100%;
+    }
+    &::after {
+      border-top-color: white;
+      border-bottom: none;
+      top: calc(100% - 1px);
+    }
+  }
+
+  .lol-popover-trigger-wrapper {
+    display: inline-block;
   }
 </style>
