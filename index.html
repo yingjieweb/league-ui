@@ -47,17 +47,29 @@
     <section style="margin-top: 50px;">
       <h2>Popover 弹出框</h2>
       <div style="overflow: hidden; border: 1px solid red; padding: 5px;">
-        <lol-popover>
+        <lol-popover position="top">
           <template slot="content">
             <div>1111111111111111</div>
           </template>
           <lol-button>按钮</lol-button>
         </lol-popover>
-        <lol-popover>
+        <lol-popover position="bottom">
           <template slot="content">
             <div>2222222222222</div>
           </template>
-          <lol-button>aaa</lol-button>
+          <lol-button>按钮</lol-button>
+        </lol-popover>
+        <lol-popover position="left">
+          <template slot="content">
+            <div>2222222222222</div>
+          </template>
+          <lol-button>按钮</lol-button>
+        </lol-popover>
+        <lol-popover position="right">
+          <template slot="content">
+            <div>2222222222222</div>
+          </template>
+          <lol-button>按钮</lol-button>
         </lol-popover>
       </div>
     </section>

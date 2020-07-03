@@ -1,6 +1,6 @@
 <template>
   <div ref="popover" class="lol-popover" @click="onClick">
-    <div ref="contentWrapper" class="lol-popover-content-wrapper" v-if="visible">
+    <div ref="contentWrapper" class="lol-popover-content-wrapper" v-if="visible" :class="contentClasses">
       <slot name="content"></slot>
     </div>
     <span ref="triggerWrapper" class="lol-popover-trigger-wrapper">
@@ -12,9 +12,23 @@
 <script>
   export default {
     name: "LolPopover",
-    data () {
+    props: {
+      position: {
+        type: String,
+        default: 'top',
+        validator(value) {
+          return ['top', 'bottom', 'left', 'right'].indexOf(value) > -1
+        }
+      },
+    },
+    data() {
       return {
         visible: false,
+      }
+    },
+    computed: {
+      contentClasses() {
+        return [`lol-popover-content-wrapper-position-${this.position}`]
       }
     },
     methods: {
@@ -23,7 +37,7 @@
         if (this.$refs.triggerWrapper.contains(event.target)) {
           if (this.visible === true) {
             this.close()
-          }else {
+          } else {
             this.open()
           }
         }
@@ -48,19 +62,39 @@
         document.body.appendChild(this.$refs.contentWrapper)
 
         // Get button wrapper styles
+        const {contentWrapper, triggerWrapper} = this.$refs
+        const {height: contentHeight} = contentWrapper.getBoundingClientRect()
         const {width, height, top, left} = this.$refs.triggerWrapper.getBoundingClientRect()
-        this.$refs.contentWrapper.style.top = top + window.screenX + 'px'
-        this.$refs.contentWrapper.style.left = left + window.scrollY +  'px'
+        const positions = {
+          top: {
+            top: top + window.scrollY,
+            left: left + window.scrollX
+          },
+          bottom: {
+            top: top + height + window.scrollY,
+            left: left + window.scrollX
+          },
+          left: {
+            top: top + window.scrollY + (height - contentHeight)/2,
+            left: left + window.scrollX
+          },
+          right: {
+            top: top + window.scrollY + (height - contentHeight)/2,
+            left: left + window.scrollX + width
+          }
+        }
+        contentWrapper.style.top = positions[this.position].top + 'px'
+        contentWrapper.style.left = positions[this.position].left + 'px'
       },
       onDocClick(event) {
         // Click outside of LolPopover, then close it
         if (this.$refs.popover && (this.$refs.popover === event.target || this.$refs.popover.contains(event.target))) {
-          return;
+          return
         }
         if (this.$refs.contentWrapper && (this.$refs.contentWrapper === event.target || this.$refs.contentWrapper.contains(event.target))) {
-          return;
+          return
         }
-        this.close();
+        this.close()
       },
     }
   }
@@ -69,6 +103,7 @@
 <style lang="scss" scoped>
   $border-color: #ddd;
   $border-radius: 4px;
+  $popover-arrow-color: white;
 
   .lol-popover {
     display: inline-block;
@@ -78,33 +113,77 @@
 
   .lol-popover-content-wrapper {
     position: absolute;
-    padding: 0.5em 1em;
-    margin-top: -10px;
-    border: 1px solid $border-color;
+    padding: 0.8em 1em;
+    border: 1px solid $popover-arrow-color;
     border-radius: $border-radius;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.5));
     background-color: white;
-    transform: translateY(-100%);
     max-width: 20em;
     word-break: break-all;
 
-    &::before, &::after {
+    &::before {
       content: '';
-      display: block;
-      border: 10px solid transparent;
       width: 0;
       height: 0;
+      display: block;
+      border: 10px solid transparent;
       position: absolute;
     }
-    &::before {
-      border-top-color: $border-color;
-      border-bottom: none;
-      top: 100%;
+
+    &-position-top {
+      margin-top: -10px;
+      transform: translateY(-100%);
+
+      &::before {
+        left: 10px;
+      }
+      &::before {
+        border-top-color: white;
+        border-bottom: none;
+        top: 100%;
+      }
     }
-    &::after {
-      border-top-color: white;
-      border-bottom: none;
-      top: calc(100% - 1px);
+
+    &-position-bottom {
+      margin-top: 10px;
+
+      &::before {
+        left: 10px;
+      }
+      &::before {
+        border-bottom-color: $popover-arrow-color;
+        border-top: none;
+        bottom: 100%;
+      }
+    }
+
+    &-position-left {
+      transform: translateX(-100%);
+      margin-left: -10px;
+
+      &::before {
+        transform: translateY(-50%);
+        top: 50%;
+      }
+      &::before {
+        border-left-color: $popover-arrow-color;
+        border-right: none;
+        left: 100%;
+      }
+    }
+
+    &-position-right {
+      margin-left: 10px;
+
+      &::before {
+        transform: translateY(-50%);
+        top: 50%;
+      }
+      &::before {
+        border-right-color: $popover-arrow-color;
+        border-left: none;
+        right: 100%;
+      }
     }
   }
 
