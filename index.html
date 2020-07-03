@@ -27,6 +27,7 @@
     body {
       font-size: var(--font-size);
       background-color: #F1F1F1;
+      border: 1px solid darkgoldenrod;
     }
   </style>
   <style>
@@ -45,12 +46,20 @@
   <div id="app">
     <section style="margin-top: 50px;">
       <h2>Popover 弹出框</h2>
-      <lol-popover>
-        <template slot="content">
-          <div>1111111111111111</div>
-        </template>
-        <lol-button>按钮</lol-button>
-      </lol-popover>
+      <div style="overflow: hidden; border: 1px solid red; padding: 5px;">
+        <lol-popover>
+          <template slot="content">
+            <div>1111111111111111</div>
+          </template>
+          <lol-button>按钮</lol-button>
+        </lol-popover>
+        <lol-popover>
+          <template slot="content">
+            <div>2222222222222</div>
+          </template>
+          <lol-button>aaa</lol-button>
+        </lol-popover>
+      </div>
     </section>
 
     <section style="margin-top: 50px;">
