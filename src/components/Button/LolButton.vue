@@ -56,28 +56,37 @@
 </script>
 
 <style lang="scss" scoped>
+  $global-font-size: 14px;
+  $global-border-radius: 4px;
+  $global-border-color: #999999;
+  $global-border-color-hover: #666666;
+
+  $lol-button-height: 32px;
+  $lol-button-bgc-active: #eeeeee;
+  $lol-button-text-color: #ffffff;
+  $lol-button-shadow-color: rgba(255, 255, 255, 1);
+
   .lol-button {
-    font-size: var(--font-size);
-    height: var(--button-height);
     padding: 0 1em;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-    background: var(--button-bg);
+    height: $lol-button-height;
+    font-size: $global-font-size;
+    border-radius: $global-border-radius;
+    color: $lol-button-text-color;
+
     display: inline-flex;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
     border: none;
     outline: none;
-    color: #ffffff;
     cursor: pointer;
 
     &:hover {
-      box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
+      box-shadow: 0px 0px 3px 3px $lol-button-shadow-color;
     }
 
     &:active {
-      background-color: var(--button-active-bg);
+      background-color: $lol-button-bgc-active;
     }
 
     &:focus {
