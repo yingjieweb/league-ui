@@ -1,5 +1,5 @@
 <template>
-  <div class="lol-collapse-item" @click="isOpen = !isOpen">
+  <div class="lol-collapse-item" @click="toggle">
     <div class="title">
       {{title}}
     </div>
@@ -16,6 +16,10 @@
     props: {
       title: {
         type: String
+      },
+      name: {
+        type: String,
+        required: true
       }
     },
     data() {
@@ -31,7 +35,7 @@
     },
     methods: {
       toggle () {
-        if (this.open) {
+        if (this.isOpen) {
           this.eventBus && this.eventBus.$emit('update:removeSelected', this.name)
         } else {
           this.eventBus && this.eventBus.$emit('update:addSelected', this.name)

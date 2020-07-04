@@ -50,7 +50,8 @@ new Vue({
     isLoading1: true,
     isLoading2: false,
     inputMessage: 'xixixi',
-    selectedTab: 'career'
+    selectedTab: 'career',
+    selectedCollapseItem: ['1', '2']
   },
   methods: {
     inputChange(value) {
