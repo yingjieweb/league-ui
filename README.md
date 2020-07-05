@@ -33,6 +33,6 @@ This UI library will reset some styles as followed. I strongly recommend you to 
 ```
 
 ## Copyright Statement
-I love playing League of Legend, so I built this just for fun but not for commercial purpose.
-**Please note: some images, logos are from League of Legend made by Riot Games. If you want to use this lib for commercial purpose,
+I love playing League of Legends, so I built this just for fun but not for commercial purpose.
+**Please note: some images, logos are from League of Legends made by Riot Games. If you want to use this lib for commercial purpose,
 you have to obey those licences and place a proper licence for your project.**
