@@ -137,9 +137,10 @@
 </script>
 
 <style lang="scss" scoped>
-  $border-color: #ddd;
+  $league-gold: #EDC56E;
+  $league-dark: #333333;
+  $league-box-shadow: rgba(0, 0, 0, 0.5);
   $border-radius: 4px;
-  $popover-arrow-color: white;
 
   .lol-popover {
     display: inline-block;
@@ -150,14 +151,15 @@
   .lol-popover-content-wrapper {
     position: absolute;
     padding: 0.8em 1em;
-    border: 1px solid $popover-arrow-color;
+    border: 1px solid $league-gold;
     border-radius: $border-radius;
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.5));
-    background-color: white;
+    filter: drop-shadow(0 1px 4px $league-box-shadow);
+    background-color: $league-dark;
+    color: $league-gold;
     max-width: 20em;
     word-break: break-all;
 
-    &::before {
+    &::before, &::after{
       content: '';
       width: 0;
       height: 0;
@@ -170,26 +172,36 @@
       margin-top: -10px;
       transform: translateY(-100%);
 
-      &::before {
+      &::before, &::after {
         left: 10px;
       }
       &::before {
-        border-top-color: white;
+        border-top-color: $league-gold;
         border-bottom: none;
         top: 100%;
+      }
+      &::after {
+        border-top-color: $league-dark;
+        border-bottom: none;
+        top: calc(100% - 2px);
       }
     }
 
     &-position-bottom {
       margin-top: 10px;
 
-      &::before {
+      &::before, &::after {
         left: 10px;
       }
       &::before {
-        border-bottom-color: $popover-arrow-color;
+        border-bottom-color: $league-gold;
         border-top: none;
         bottom: 100%;
+      }
+      &::after {
+        border-top: none;
+        border-bottom-color: $league-dark;
+        bottom: calc(100% - 2px);
       }
     }
 
@@ -197,28 +209,38 @@
       transform: translateX(-100%);
       margin-left: -10px;
 
-      &::before {
+      &::before, &::after {
         transform: translateY(-50%);
         top: 50%;
       }
       &::before {
-        border-left-color: $popover-arrow-color;
+        border-left-color: $league-gold;
         border-right: none;
         left: 100%;
+      }
+      &::after {
+        border-left-color: $league-dark;
+        border-right: none;
+        left: calc(100% - 2px);
       }
     }
 
     &-position-right {
       margin-left: 10px;
 
-      &::before {
+      &::before, &::after {
         transform: translateY(-50%);
         top: 50%;
       }
       &::before {
-        border-right-color: $popover-arrow-color;
+        border-right-color: $league-gold;
         border-left: none;
         right: 100%;
+      }
+      &::after {
+        border-right-color: $league-dark;
+        border-left: none;
+        right: calc(100% - 2px);
       }
     }
   }
