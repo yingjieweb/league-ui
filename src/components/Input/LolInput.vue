@@ -14,10 +14,10 @@
             @blur="$emit('blur', $event.target.value)"
             @input="$emit('input', $event.target.value)"
     >
-    <template class="lol-input-hint" v-if="hint">
+    <div class="lol-input-hint" v-if="hint">
       <lol-icon class="lol-input-hint-icon" :name="iconName" :color="iconColor"></lol-icon>
       <small>{{hint}}</small>
-    </template>
+    </div>
   </div>
 </template>
 
@@ -78,7 +78,7 @@
       inputStyles() {
         return {
           width: this.width + 'px',
-          borderRadius: this.rect ? '0' : '2px'
+          borderRadius: this.rect ? '0' : '4px'
         }
       },
       iconColor() {
@@ -133,7 +133,11 @@
     }
 
     .lol-input-hint {
-      &-icon { margin-left: 4px; margin-right: 4px; }
+      height: $height;
+      display: flex;
+      align-items: center;
+      padding-right: 1em;
+      &-icon { margin-left: 4px; margin-right: 4px;}
     }
   }
 
@@ -142,15 +146,15 @@
     & small { color: $--color-danger; }
   }
   .lol-input-wrapper-warning {
-    > input { border-color: $--color-warning; }
+    > .lol-input-inner { border-color: $--color-warning; }
     & small { color: $--color-warning; }
   }
   .lol-input-wrapper-info {
-    > input { border-color: $--color-info; }
+    > .lol-input-inner { border-color: $--color-info; }
     & small { color: $--color-info; }
   }
   .lol-input-wrapper-success {
-    > input { border-color: $--color-success; }
+    > .lol-input-inner { border-color: $--color-success; }
     & small { color: $--color-success; }
   }
 </style>
