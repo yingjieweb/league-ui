@@ -101,10 +101,10 @@
       > .lol-button-content {order: 1; margin: 0 4px;}
     }
 
-    &-primary { background: #79BBFF; }
-    &-success { background: #67C23A; }
-    &-warning { background: #E6A23C; }
-    &-danger { background: #F56C6C; }
+    &-primary { background: #409EFF; }
+    &-success { background: #33A03D; }
+    &-warning { background: #FFC429; }
+    &-danger { background: #DE4561; }
     &-info { background: #909399; }
 
     & + & {
