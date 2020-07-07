@@ -3,7 +3,7 @@
     <div class="title">
       {{title}}
     </div>
-    <div class="content" v-if="isOpen">
+    <div class="content" v-show="isOpen" ref="content">
       <slot></slot>
     </div>
   </div>
@@ -34,10 +34,10 @@
       })
     },
     methods: {
-      toggle () {
-        if (this.isOpen) {
+      toggle (event) {
+        if (this.isOpen && event.target !== this.$refs.content) {
           this.eventBus && this.eventBus.$emit('update:removeSelected', this.name)
-        } else {
+        } else if (!this.isOpen && event.target !== this.$refs.content) {
           this.eventBus && this.eventBus.$emit('update:addSelected', this.name)
         }
       }
