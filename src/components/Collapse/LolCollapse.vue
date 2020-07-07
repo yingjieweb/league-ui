@@ -54,11 +54,5 @@
 </script>
 
 <style lang="scss" scoped>
-  $grey: #ddd;
-  $border-radius: 4px;
 
-  .lol-collapse {
-    border: 1px solid $grey;
-    border-radius: $border-radius;
-  }
 </style>

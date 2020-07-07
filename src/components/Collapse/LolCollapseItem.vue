@@ -46,36 +46,28 @@
 </script>
 
 <style lang="scss" scoped>
-  $grey: #ddd;
-  $border-radius: 4px;
+  $--color-info: #909399;
+  $league-gold: #EDC56E;
+  $league-dark: #333333;
+
+  $league-box-shadow: rgba(0, 0, 0, 0.5);
 
   .lol-collapse-item {
     > .title {
       padding: 0 8px;
-      border: 1px solid $grey;
-      margin: -1px;
+      margin: 2px 0;
       min-height: 32px;
       display: flex;
       align-items: center;
-      background: lighten($grey, 8%);
-    }
-
-    &:first-child {
-      > .title {
-        border-top-left-radius: $border-radius;
-        border-top-right-radius: $border-radius;
-      }
-    }
-
-    &:last-child {
-      > .title:last-child {
-        border-bottom-left-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
-      }
+      background: $--color-info;
+      color: white;
     }
 
     > .content {
       padding: 8px;
+      border: 1px solid $league-gold;
+      background: $league-dark;
+      color: $league-gold;
     }
   }
 </style>
