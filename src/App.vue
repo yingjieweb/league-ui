@@ -222,6 +222,11 @@ export default {
   name: 'App',
   data() {
     return {
+      isLoading1: true,
+      isLoading2: false,
+      inputMessage: 'xixixi',
+      selectedTab: 'career',
+      selectedCollapseItem: ['1', '2'],
       cascaderDataSource: [{
         name: '山东',
         children: [{
@@ -257,6 +262,25 @@ export default {
           ]
         }]
       }]
+    }
+  },
+  methods: {
+    inputChange(value) {
+      console.log(value)
+    },
+    showToast() {
+      this.$toast(`I am <strong>加粗文字</strong> ${parseInt(Math.random()*100)}`, {
+        closeButton: {
+          text: '知道了',
+          callback: (toast) => {
+            toast.log()
+            console.log('用户知道了')
+          }
+        },
+        enableHtml: true,
+        position: 'middle',
+        autoClose: 10
+      })
     }
   }
 }
