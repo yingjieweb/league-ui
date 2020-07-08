@@ -1,12 +1,10 @@
 <template>
   <div class="lol-cascader">
-    <div class="lol-cascader-trigger">
+    <div class="lol-cascader-trigger" @click="isPopoverShow = !isPopoverShow">
       <slot></slot>
     </div>
-    <div class="lol-cascader-popover">
-      <div v-for="item in source">
-        <lol-cascader-list :source-item="item"></lol-cascader-list>
-      </div>
+    <div v-if="isPopoverShow" class="lol-cascader-popover" :style="popoverStyles">
+      <lol-cascader-list v-show="isPopoverShow" :source="source"></lol-cascader-list>
     </div>
   </div>
 </template>
@@ -22,6 +20,22 @@
     props: {
       source: {
         type: Array
+      },
+      height: {
+        type: [String, Number],
+        default: 180
+      }
+    },
+    data() {
+      return {
+        isPopoverShow: false
+      }
+    },
+    computed: {
+      popoverStyles() {
+        return {
+          height: `${this.height}px`
+        }
       }
     }
   }
@@ -30,7 +44,29 @@
 <style lang="scss" scoped>
   @import '../../assets/styles/global';
 
-  .lol-cascader {
+  $league-white: #FFFFFF;
+  $league-gold: #EDC56E;
+  $league-dark: #333333;
+  $cascader-border-radius: 4px;
+  cascader-box-shadow {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+  }
 
+  .lol-cascader {
+    position: relative;
+
+    &-trigger {
+
+    }
+    &-popover {
+      @extend cascader-box-shadow;
+
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: $league-dark;
+      color: $league-gold;
+      border-radius: $cascader-border-radius;
+    }
   }
 </style>

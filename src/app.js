@@ -73,6 +73,23 @@ new Vue({
           {name: '拾贝区'}
         ]
       }]
+    }, {
+      name: '江苏',
+      children: [{
+        name: '南京',
+        children: [
+          {name: '雨花台'},
+          {name: '开发区'},
+          {name: '江宁区'}
+        ]
+      }, {
+        name: '无锡',
+        children: [
+          {name: '研究院'},
+          {name: '银行区'},
+          {name: '学校区'}
+        ]
+      }]
     }]
   },
   methods: {
