@@ -52,9 +52,9 @@
 </script>
 
 <style lang="scss" scoped>
-  $lol-tabs-item-active-bgc: #5D91BC;
-  $lol-tabs-item-line-active-bgc: #79BBFF;
-  $lol-tabs-item-text-active-color: #79BBFF;
+  $lol-tabs-item-active-bgc: #FFFFFF;
+  $lol-tabs-item-line-active-bgc: #DEB762;
+  $lol-tabs-item-text-active-color: #DEB762;
   $lol-tabs-item-text-disabled-color: #cccccc;
 
   .lol-tabs-item {
@@ -68,6 +68,7 @@
       height: 100%;
       padding: 0 1em;
       display: flex;
+      justify-content: center;
       align-items: center;
     }
 
@@ -76,7 +77,7 @@
       height: 2px;
       position: absolute;
       left: 50%;
-      bottom: 0;
+      top: 0;
       transform: translateX(-50%);
       background: $lol-tabs-item-line-active-bgc;
       transition: width .3s;
@@ -87,13 +88,18 @@
       fill: red;
     }
 
-    &:hover {
-      color: $lol-tabs-item-text-active-color;
-    }
-
-    &_active {
+    &:hover, &_active {
       color: $lol-tabs-item-text-active-color;
       background: $lol-tabs-item-active-bgc;
+      &::after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        background-color: white;
+      }
 
       .lol-tabs-item-line {
         width: 100%;

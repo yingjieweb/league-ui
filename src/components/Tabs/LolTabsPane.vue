@@ -38,10 +38,5 @@
 </script>
 
 <style lang="scss" scoped>
-  .lol-tabs-pane {
 
-    &_active  {
-      /*background-color: red;*/
-    }
-  }
 </style>
