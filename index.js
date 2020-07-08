@@ -18,6 +18,8 @@ import LolTabsPane from "./src/components/Tabs/LolTabsPane"
 import LolPopover from "./src/components/Popover/LolPopover"
 import LolCollapse from "./src/components/Collapse/LolCollapse"
 import LolCollapseItem from "./src/components/Collapse/LolCollapseItem"
+import LolCascader from "./src/components/Cascader/LolCascader"
+import LolCascaderList from "./src/components/Cascader/LolCascaderList"
 
 export {
   LolIcon,
@@ -28,5 +30,6 @@ export {
   LolToast,
   LolTabs, LolTabsHead, LolTabsItem, LolTabsBody, LolTabsPane,
   LolPopover,
-  LolCollapse, LolCollapseItem
+  LolCollapse, LolCollapseItem,
+  LolCascader, LolCascaderList
 }

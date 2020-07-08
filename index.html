@@ -34,6 +34,13 @@
 <body>
   <div id="app">
     <section style="margin-top: 50px; padding: 20px;">
+      <h2>Cascader 级联器</h2>
+      <lol-cascader :source="cascaderDataSource">
+        <lol-input value="山东省"></lol-input>
+      </lol-cascader>
+    </section>
+
+    <section style="margin-top: 50px; padding: 20px;">
       <h2>Collapse 手风琴</h2>
       <lol-collapse :multi-select="true" :selected.sync="selectedCollapseItem">
         <lol-collapse-item title="一" name="1">111</lol-collapse-item>

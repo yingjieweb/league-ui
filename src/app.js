@@ -20,6 +20,8 @@ import LolTabsPane from "./components/Tabs/LolTabsPane"
 import LolPopover from "./components/Popover/LolPopover"
 import LolCollapse from "./components/Collapse/LolCollapse"
 import LolCollapseItem from "./components/Collapse/LolCollapseItem"
+import LolCascader from "./components/Cascader/LolCascader"
+import LolCascaderList from "./components/Cascader/LolCascaderList"
 
 Vue.component('lol-button', LolButton)
 Vue.component('lol-icon', LolIcon)
@@ -42,6 +44,8 @@ Vue.component('lol-tabs-pane', LolTabsPane)
 Vue.component('lol-popover', LolPopover)
 Vue.component('lol-collapse', LolCollapse)
 Vue.component('lol-collapse-item', LolCollapseItem)
+Vue.component('lol-cascader', LolCascader)
+Vue.component('lol-cascader-list', LolCascaderList)
 
 
 new Vue({
@@ -51,7 +55,25 @@ new Vue({
     isLoading2: false,
     inputMessage: 'xixixi',
     selectedTab: 'career',
-    selectedCollapseItem: ['1', '2']
+    selectedCollapseItem: ['1', '2'],
+    cascaderDataSource: [{
+      name: '山东',
+      children: [{
+        name: '烟台',
+        children: [
+          {name: '芝罘区'},
+          {name: '福山区'},
+          {name: '开发区'}
+        ]
+      }, {
+        name: '青岛',
+        children: [
+          {name: '台北区'},
+          {name: '栈桥区'},
+          {name: '拾贝区'}
+        ]
+      }]
+    }]
   },
   methods: {
     inputChange(value) {
