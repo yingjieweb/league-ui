@@ -3,7 +3,9 @@
     <div class="lol-cascader-list-left">
       <div class="lol-cascader-list-left-item" v-for="(item, index) in source" :key="index" @click="selectLeftItem(item)">
         <span class="lol-cascader-list-left-item-text">{{item.name}}</span>
-        <lol-icon class="lol-cascader-list-left-item-icon" name="right" color="#EDC56E"></lol-icon>
+        <span class="lol-cascader-list-left-item-icon">
+          <lol-icon  name="right" color="#EDC56E" v-if="showIcon(item)"></lol-icon>
+        </span>
       </div>
     </div>
     <div class="lol-cascader-list-right" v-if="rightSource">
@@ -37,6 +39,9 @@
       level: {
         type: Number,
         default: 0
+      },
+      loadData: {
+        type: Function
       }
     },
     data() {
@@ -66,12 +71,23 @@
       },
       onUpdateSelected(updatedSelected) {
         this.$emit('update:selected', updatedSelected)
+      },
+      showIcon(item) {
+        return this.loadData ? !item.isLeaf : item.children
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  $league-white: #FFFFFF;
+  $league-gold: #EDC56E;
+  $league-dark: #333333;
+  $cascader-border-radius: 4px;
+  cascader-box-shadow {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9);
+  }
+
   .lol-cascader-list {
     display: flex;
     align-items: flex-start;
@@ -83,14 +99,29 @@
       overflow: auto;
 
       &-item {
-        padding: 0.3em 1em;
+        padding: 0.3em 0.5em;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
+        &-text {
+          user-select: none;
+        }
+
         &-icon {
           margin-left: 1em;
           transform: scale(0.9);
+        }
+
+        &.active {
+          border: 1px solid $league-gold;
+        }
+        &:hover {
+          background: $league-gold;
+          color: $league-white;
+          svg {
+            fill: $league-white !important;
+          }
         }
       }
     }

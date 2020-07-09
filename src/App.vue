@@ -226,9 +226,9 @@
     return new Promise((success, fail) => {
       setTimeout(() => {
         let result = district.filter((item) => item.parentId === parentId)
-        /*result.forEach(node => {
+        result.forEach(node => {
           node.isLeaf = district.filter(item => item.parentId === node.id).length <= 0
-        })*/
+        })
         success(result)
       }, 1000)
     })
@@ -283,9 +283,46 @@
       }
     },
     created() {
+      /* Cascader 动态加载生成数据*/
       ajax(0).then(result => {
         this.cascaderDataSource = result
       })
+      /* Cascader 静态加载测试*/
+      /*this.cascaderDataSource = [{
+        name: '山东',
+        children: [{
+          name: '烟台',
+          children: [
+            {name: '芝罘区'},
+            {name: '福山区'},
+            {name: '开发区'}
+          ]
+        }, {
+          name: '青岛',
+          children: [
+            {name: '台北区'},
+            {name: '栈桥区'},
+            {name: '拾贝区'}
+          ]
+        }]
+      }, {
+        name: '江苏',
+        children: [{
+          name: '南京',
+          children: [
+            {name: '雨花台'},
+            {name: '开发区'},
+            {name: '江宁区'}
+          ]
+        }, {
+          name: '无锡',
+          children: [
+            {name: '研究院'},
+            {name: '银行区'},
+            {name: '学校区'}
+          ]
+        }]
+      }]*/
     },
     methods: {
       inputChange(value) {

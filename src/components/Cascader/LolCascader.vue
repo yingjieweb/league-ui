@@ -1,11 +1,16 @@
 <template>
   <div class="lol-cascader">
-    <div class="lol-cascader-trigger" @click="isPopoverShow = !isPopoverShow">
+    <div class="lol-cascader-trigger" @click="togglePopover">
       <slot></slot>
       {{selectedValue}}
     </div>
     <div v-if="isPopoverShow" class="lol-cascader-popover" :style="popoverStyles">
-      <lol-cascader-list :source="source" :selected="selected" @update:selected="onUpdateSelected"></lol-cascader-list>
+      <lol-cascader-list
+              :source="source"
+              :selected="selected"
+              @update:selected="onUpdateSelected"
+              :load-data="loadData"
+      ></lol-cascader-list>
     </div>
   </div>
 </template>
@@ -50,6 +55,20 @@
       }
     },
     methods: {
+      open() {
+        this.isPopoverShow = true
+      },
+      close() {
+        this.isPopoverShow = false
+      },
+      togglePopover() {
+        if (this.isPopoverShow) {
+          this.close()
+        }
+        else {
+          this.open()
+        }
+      },
       onUpdateSelected(updatedSelected) {
         this.$emit('update:selected', updatedSelected)
         let onClickItem = updatedSelected[updatedSelected.length - 1]
@@ -92,7 +111,9 @@
 
           this.$emit('update:source', sourceCopy)
         }
-        this.loadData(onClickItem, updateSource)  //调用外界传入的函数
+        if (!onClickItem.isLeaf && this.loadData) {
+          this.loadData && this.loadData(onClickItem, updateSource) //调用外界传入的函数
+        }
       }
     }
   }
