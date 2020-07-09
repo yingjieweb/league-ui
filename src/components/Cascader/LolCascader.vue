@@ -1,5 +1,5 @@
 <template>
-  <div class="lol-cascader">
+  <div class="lol-cascader" v-click-outside="close">
     <div class="lol-cascader-trigger" @click="togglePopover">
       <slot></slot>
       {{selectedValue}}
@@ -16,13 +16,17 @@
 </template>
 
 <script>
+  import LolInput from "../Input/LolInput"
   import LolCascaderList from "./LolCascaderList"
+  import ClickOutside from "../../directives/ClickOutside"
 
   export default {
     name: "LolCascader",
     components: {
+      'lol-input': LolInput,
       'lol-cascader-list': LolCascaderList
     },
+    directives: { ClickOutside },
     props: {
       source: {
         type: Array
