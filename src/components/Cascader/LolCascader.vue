@@ -2,6 +2,7 @@
   <div class="lol-cascader">
     <div class="lol-cascader-trigger" @click="isPopoverShow = !isPopoverShow">
       <slot></slot>
+      {{selectedValue}}
     </div>
     <div v-if="isPopoverShow" class="lol-cascader-popover" :style="popoverStyles">
       <lol-cascader-list :source="source" :selected="selected" @update:selected="onUpdateSelected"></lol-cascader-list>
@@ -40,6 +41,9 @@
         return {
           height: `${this.height}px`
         }
+      },
+      selectedValue() {
+        return this.selected.map((item) => item.name).join('/')
       }
     },
     methods: {

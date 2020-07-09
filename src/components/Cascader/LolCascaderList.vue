@@ -1,7 +1,5 @@
 <template>
   <div class="lol-cascader-list">
-    <div>selected:{{selected && selected[level] && selected[level].name}}</div>
-    <div>{{level}}</div>
     <div class="lol-cascader-list-left">
       <div class="lol-cascader-list-left-item" v-for="(item, index) in source" :key="index" @click="selectLeftItem(item)">
         <span class="lol-cascader-list-left-item-text">{{item.name}}</span>
@@ -43,7 +41,7 @@
     },
     data() {
       return {
-        // leftSelected: null
+        activeName: ''
       }
     },
     computed: {
@@ -58,9 +56,7 @@
     },
     methods: {
       selectLeftItem(item) {
-        // this.$set(this.selected, this.level, item)
-
-        // this.activeName = item.name
+        this.activeName = item.name
          let selectedCopy = Utils.deepClone(this.selected)
          // Update to current selected item
          selectedCopy[this.level] = item
