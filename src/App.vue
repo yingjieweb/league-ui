@@ -218,73 +218,82 @@
 </template>
 
 <script>
-export default {
-  name: 'App',
-  data() {
-    return {
-      isLoading1: true,
-      isLoading2: false,
-      inputMessage: 'xixixi',
-      selectedTab: 'career',
-      selectedCollapseItem: ['1', '2'],
-      selectedCascaderData: [],
-      cascaderDataSource: [{
-        name: '山东',
-        children: [{
-          name: '烟台',
-          children: [
-            {name: '芝罘区'},
-            {name: '福山区'},
-            {name: '开发区'}
-          ]
+  import district from "./database/district"
+
+  function ajax (parentId = 0) {
+    return district.filter( item => item.parentId === parentId)
+  }
+
+  console.log(ajax())
+
+  export default {
+    name: 'App',
+    data() {
+      return {
+        isLoading1: true,
+        isLoading2: false,
+        inputMessage: 'xixixi',
+        selectedTab: 'career',
+        selectedCollapseItem: ['1', '2'],
+        selectedCascaderData: [],
+        cascaderDataSource: ajax()
+        /*cascaderDataSource: [{
+          name: '山东',
+          children: [{
+            name: '烟台',
+            children: [
+              {name: '芝罘区'},
+              {name: '福山区'},
+              {name: '开发区'}
+            ]
+          }, {
+            name: '青岛',
+            children: [
+              {name: '台北区'},
+              {name: '栈桥区'},
+              {name: '拾贝区'}
+            ]
+          }]
         }, {
-          name: '青岛',
-          children: [
-            {name: '台北区'},
-            {name: '栈桥区'},
-            {name: '拾贝区'}
-          ]
-        }]
-      }, {
-        name: '江苏',
-        children: [{
-          name: '南京',
-          children: [
-            {name: '雨花台'},
-            {name: '开发区'},
-            {name: '江宁区'}
-          ]
-        }, {
-          name: '无锡',
-          children: [
-            {name: '研究院'},
-            {name: '银行区'},
-            {name: '学校区'}
-          ]
-        }]
-      }]
-    }
-  },
-  methods: {
-    inputChange(value) {
-      console.log(value)
+          name: '江苏',
+          children: [{
+            name: '南京',
+            children: [
+              {name: '雨花台'},
+              {name: '开发区'},
+              {name: '江宁区'}
+            ]
+          }, {
+            name: '无锡',
+            children: [
+              {name: '研究院'},
+              {name: '银行区'},
+              {name: '学校区'}
+            ]
+          }]
+        }]*/
+      }
     },
-    showToast() {
-      this.$toast(`I am <strong>加粗文字</strong> ${parseInt(Math.random()*100)}`, {
-        closeButton: {
-          text: '知道了',
-          callback: (toast) => {
-            toast.log()
-            console.log('用户知道了')
-          }
-        },
-        enableHtml: true,
-        position: 'middle',
-        autoClose: 10
-      })
+    methods: {
+      inputChange(value) {
+        console.log(value)
+      },
+      showToast() {
+        this.$toast(`I am <strong>加粗文字</strong> ${parseInt(Math.random()*100)}`, {
+          closeButton: {
+            text: '知道了',
+            callback: (toast) => {
+              toast.log()
+              console.log('用户知道了')
+            }
+          },
+          enableHtml: true,
+          position: 'middle',
+          autoClose: 10
+        })
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
