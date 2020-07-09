@@ -10,6 +10,7 @@
               :selected="selected"
               @update:selected="onUpdateSelected"
               :load-data="loadData"
+              :loading-item="loadingItem"
       ></lol-cascader-list>
     </div>
   </div>
@@ -45,7 +46,8 @@
     },
     data() {
       return {
-        isPopoverShow: false
+        isPopoverShow: false,
+        loadingItem: {}
       }
     },
     computed: {
@@ -109,6 +111,7 @@
         }
 
         let updateSource = (onClickItemChildren) => {
+          this.loadingItem = {}
           let sourceCopy = JSON.parse(JSON.stringify(this.source))
           let toUpdate = complex(sourceCopy, onClickItem.id)
           toUpdate.children = onClickItemChildren
@@ -116,7 +119,8 @@
           this.$emit('update:source', sourceCopy)
         }
         if (!onClickItem.isLeaf && this.loadData) {
-          this.loadData && this.loadData(onClickItem, updateSource) //调用外界传入的函数
+          this.loadData(onClickItem, updateSource) //调用外界传入的函数
+          this.loadingItem = onClickItem
         }
       }
     }
@@ -149,6 +153,7 @@
       background-color: $league-dark;
       color: $league-gold;
       border-radius: $cascader-border-radius;
+      z-index: 1;
     }
   }
 </style>

@@ -2,7 +2,11 @@
   <div id="app">
     <section style="margin-top: 50px; margin-bottom: 200px; padding: 20px;">
       <h2>Cascader 级联器</h2>
-      <lol-cascader :source.sync="cascaderDataSource" :selected.sync="selectedCascaderData" :load-data="loadData">
+      <lol-cascader :source.sync="cascaderDataSource1" :selected.sync="selectedCascaderData1">
+        <lol-input value="山东省"></lol-input>
+      </lol-cascader>
+      <br><br><br>
+      <lol-cascader :source.sync="cascaderDataSource2" :selected.sync="selectedCascaderData2" :load-data="loadData">
         <lol-input value="山东省"></lol-input>
       </lol-cascader>
     </section>
@@ -243,9 +247,10 @@
         inputMessage: 'xixixi',
         selectedTab: 'career',
         selectedCollapseItem: ['1', '2'],
-        selectedCascaderData: [],
-        cascaderDataSource: []
-        /*cascaderDataSource: [{
+        selectedCascaderData1: [],
+        selectedCascaderData2: [],
+        cascaderDataSource2: [],
+        cascaderDataSource1: [{
           name: '山东',
           children: [{
             name: '烟台',
@@ -279,50 +284,14 @@
               {name: '学校区'}
             ]
           }]
-        }]*/
+        }]
       }
     },
     created() {
       /* Cascader 动态加载生成数据*/
       ajax(0).then(result => {
-        this.cascaderDataSource = result
+        this.cascaderDataSource2 = result
       })
-      /* Cascader 静态加载测试*/
-      /*this.cascaderDataSource = [{
-        name: '山东',
-        children: [{
-          name: '烟台',
-          children: [
-            {name: '芝罘区'},
-            {name: '福山区'},
-            {name: '开发区'}
-          ]
-        }, {
-          name: '青岛',
-          children: [
-            {name: '台北区'},
-            {name: '栈桥区'},
-            {name: '拾贝区'}
-          ]
-        }]
-      }, {
-        name: '江苏',
-        children: [{
-          name: '南京',
-          children: [
-            {name: '雨花台'},
-            {name: '开发区'},
-            {name: '江宁区'}
-          ]
-        }, {
-          name: '无锡',
-          children: [
-            {name: '研究院'},
-            {name: '银行区'},
-            {name: '学校区'}
-          ]
-        }]
-      }]*/
     },
     methods: {
       inputChange(value) {
@@ -352,7 +321,7 @@
 </script>
 
 <style lang="scss" scoped>
-  /** {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -362,7 +331,7 @@
     font-size: 14px;
     background-color: #F1F1F1;
     border: 1px solid darkgoldenrod;
-  }*/
+  }
 
   .demoCol {
     height: 50px;

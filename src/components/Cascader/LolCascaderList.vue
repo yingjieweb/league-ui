@@ -1,10 +1,19 @@
 <template>
   <div class="lol-cascader-list">
     <div class="lol-cascader-list-left">
-      <div class="lol-cascader-list-left-item" v-for="(item, index) in source" :key="index" @click="selectLeftItem(item)">
+      <div class="lol-cascader-list-left-item"
+           :class="{active: item.name === activeName}"
+           v-for="(item, index) in source"
+           :key="index"
+           @click="selectLeftItem(item)">
         <span class="lol-cascader-list-left-item-text">{{item.name}}</span>
-        <span class="lol-cascader-list-left-item-icon">
-          <lol-icon  name="right" color="#EDC56E" v-if="showIcon(item)"></lol-icon>
+        <span class="lol-cascader-list-left-item-icons">
+          <template v-if="item.name === loadingItem.name">
+            <lol-icon name="loading" :is-loading="true"></lol-icon>
+          </template>
+          <template v-else>
+            <lol-icon name="right" v-if="showIcon(item)"></lol-icon>
+          </template>
         </span>
       </div>
     </div>
@@ -14,6 +23,8 @@
               :level="level + 1"
               :selected="selected"
               @update:selected="onUpdateSelected"
+              :load-data="loadData"
+              :loading-item="loadingItem"
       ></lol-cascader-list>
     </div>
   </div>
@@ -42,6 +53,10 @@
       },
       loadData: {
         type: Function
+      },
+      loadingItem: {
+        type: Object,
+        default: () => ({})
       }
     },
     data() {
@@ -83,7 +98,7 @@
   $league-white: #FFFFFF;
   $league-gold: #EDC56E;
   $league-dark: #333333;
-  $cascader-border-radius: 4px;
+  $cascader-border-radius: 3px;
   cascader-box-shadow {
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9);
   }
@@ -99,18 +114,29 @@
       overflow: auto;
 
       &-item {
-        padding: 0.3em 0.5em;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100px;
+        padding: 0.2em 1em;
+        margin: 0 .3em;
+        transition: all 0.5s;
+        border: 1px solid transparent;
+        border-radius: $cascader-border-radius;
 
         &-text {
           user-select: none;
         }
 
-        &-icon {
-          margin-left: 1em;
+        &-icons {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           transform: scale(0.9);
+
+          svg {
+            fill: $league-gold !important;
+          }
         }
 
         &.active {
