@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
     <div v-if="isPopoverShow" class="lol-cascader-popover" :style="popoverStyles">
-      <lol-cascader-list v-show="isPopoverShow" :source="source"></lol-cascader-list>
+      <lol-cascader-list :source="source" :selected="selected" @update:selected="onUpdateSelected"></lol-cascader-list>
     </div>
   </div>
 </template>
@@ -20,6 +20,10 @@
     props: {
       source: {
         type: Array
+      },
+      selected: {
+        type: Array,
+        default: () => []
       },
       height: {
         type: [String, Number],
@@ -37,6 +41,11 @@
           height: `${this.height}px`
         }
       }
+    },
+    methods: {
+      onUpdateSelected(updatedSelected) {
+        this.$emit('update:selected', updatedSelected)
+      }
     }
   }
 </script>
@@ -49,7 +58,7 @@
   $league-dark: #333333;
   $cascader-border-radius: 4px;
   cascader-box-shadow {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9);
   }
 
   .lol-cascader {
@@ -62,7 +71,7 @@
       @extend cascader-box-shadow;
 
       position: absolute;
-      top: 100%;
+      top: 110%;
       left: 0;
       background-color: $league-dark;
       color: $league-gold;

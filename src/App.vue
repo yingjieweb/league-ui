@@ -2,7 +2,7 @@
   <div id="app">
     <section style="margin-top: 50px; padding: 20px;">
       <h2>Cascader 级联器</h2>
-      <lol-cascader :source="cascaderDataSource">
+      <lol-cascader :source="cascaderDataSource" :selected="selectedCascaderData" @update:selected="selectedCascaderData = $event">
         <lol-input value="山东省"></lol-input>
       </lol-cascader>
     </section>
@@ -227,6 +227,7 @@ export default {
       inputMessage: 'xixixi',
       selectedTab: 'career',
       selectedCollapseItem: ['1', '2'],
+      selectedCascaderData: [],
       cascaderDataSource: [{
         name: '山东',
         children: [{
