@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <section style="margin-top: 50px; padding: 20px;">
+    <section style="margin-top: 50px; margin-bottom: 200px; padding: 20px;">
       <h2>Cascader 级联器</h2>
-      <lol-cascader :source="cascaderDataSource" :selected.sync="selectedCascaderData">
+      <lol-cascader :source.sync="cascaderDataSource" :selected.sync="selectedCascaderData" :load-data="loadData">
         <lol-input value="山东省"></lol-input>
       </lol-cascader>
     </section>
@@ -196,7 +196,9 @@
 
       <lol-button icon-name="loading" :is-loading="true">button</lol-button>
       <lol-button icon-name="loading" :is-loading="isLoading1" @click="isLoading1 = !isLoading1">button</lol-button>
-      <lol-button icon-name="loading" icon-position="right" :is-loading="isLoading2" @click="isLoading2 = !isLoading2">button</lol-button>
+      <lol-button icon-name="loading" icon-position="right" :is-loading="isLoading2" @click="isLoading2 = !isLoading2">
+        button
+      </lol-button>
       <br><br>
 
       <h3>Button Group</h3>
@@ -220,11 +222,17 @@
 <script>
   import district from "./database/district"
 
-  function ajax (parentId = 0) {
-    return district.filter( item => item.parentId === parentId)
+  function ajax(parentId = 0) {
+    return new Promise((success, fail) => {
+      setTimeout(() => {
+        let result = district.filter((item) => item.parentId === parentId)
+        /*result.forEach(node => {
+          node.isLeaf = district.filter(item => item.parentId === node.id).length <= 0
+        })*/
+        success(result)
+      }, 1000)
+    })
   }
-
-  console.log(ajax())
 
   export default {
     name: 'App',
@@ -236,7 +244,7 @@
         selectedTab: 'career',
         selectedCollapseItem: ['1', '2'],
         selectedCascaderData: [],
-        cascaderDataSource: ajax()
+        cascaderDataSource: []
         /*cascaderDataSource: [{
           name: '山东',
           children: [{
@@ -274,12 +282,17 @@
         }]*/
       }
     },
+    created() {
+      ajax(0).then(result => {
+        this.cascaderDataSource = result
+      })
+    },
     methods: {
       inputChange(value) {
         console.log(value)
       },
       showToast() {
-        this.$toast(`I am <strong>加粗文字</strong> ${parseInt(Math.random()*100)}`, {
+        this.$toast(`I am <strong>加粗文字</strong> ${parseInt(Math.random() * 100)}`, {
           closeButton: {
             text: '知道了',
             callback: (toast) => {
@@ -291,13 +304,18 @@
           position: 'middle',
           autoClose: 10
         })
+      },
+      loadData (onClickItemId, updateSource) {
+        ajax(onClickItemId.id).then(onClickItemChildren => {
+          updateSource(onClickItemChildren)
+        })
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  * {
+  /** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -307,13 +325,15 @@
     font-size: 14px;
     background-color: #F1F1F1;
     border: 1px solid darkgoldenrod;
-  }
-  .demoCol{
+  }*/
+
+  .demoCol {
     height: 50px;
     border: 1px solid red;
     background-color: #33A03D;
   }
-  .demoContainers{
+
+  .demoContainers {
     border: 1px solid red;
     min-height: 100px;
   }

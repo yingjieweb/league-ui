@@ -29,6 +29,9 @@
       height: {
         type: [String, Number],
         default: 180
+      },
+      loadData: {
+        type: Function
       }
     },
     data() {
@@ -49,6 +52,47 @@
     methods: {
       onUpdateSelected(updatedSelected) {
         this.$emit('update:selected', updatedSelected)
+        let onClickItem = updatedSelected[updatedSelected.length - 1]
+
+        let simplest = (children, id) => {
+          return children.filter(item => item.id === id)[0]
+        }
+        let complex = (children, id) => {
+          let noChildren = []
+          let hasChildren = []
+          children.forEach(item => {
+            if (item.children) {
+              hasChildren.push(item)
+            } else {
+              noChildren.push(item)
+            }
+          })
+          let found = simplest(noChildren, id)
+          if (found) {
+            return found
+          } else {
+            found = simplest(hasChildren, id)
+            if (found) { return found }
+            else {
+              for (let i = 0; i < hasChildren.length; i++) {
+                found = complex(hasChildren[i].children, id)
+                if (found) {
+                  return found
+                }
+              }
+              return undefined
+            }
+          }
+        }
+
+        let updateSource = (onClickItemChildren) => {
+          let sourceCopy = JSON.parse(JSON.stringify(this.source))
+          let toUpdate = complex(sourceCopy, onClickItem.id)
+          toUpdate.children = onClickItemChildren
+
+          this.$emit('update:source', sourceCopy)
+        }
+        this.loadData(onClickItem, updateSource)  //调用外界传入的函数
       }
     }
   }
