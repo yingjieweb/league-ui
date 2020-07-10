@@ -5,7 +5,7 @@ module.exports = function (config) {
     frameworks: ['mocha'],
 
     files: [
-      'tests/**/*.spec.js'
+      'tests/unit/**/*.spec.js'
     ],
 
     preprocessors: {
