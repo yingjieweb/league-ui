@@ -2,10 +2,13 @@
   "name": "league-ui",
   "version": "0.1.7",
   "private": true,
+  "main": "./dist/league-ui.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit"
+    "test": "npx karma start --single-run",
+    "test:unit": "karma start",
+    "test:unit:old": "vue-cli-service test:unit",
+    "build": "vue-cli-service build --target lib --name league-ui ./src/entry.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -16,7 +19,13 @@
     "@vue/cli-plugin-unit-mocha": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "@vue/test-utils": "^1.0.3",
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
+    "karma": "^5.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-mocha": "^2.0.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.32",
+    "karma-webpack": "^4.0.2",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "sinon": "^9.0.2",
