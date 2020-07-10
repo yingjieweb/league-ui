@@ -4,7 +4,6 @@ import LolRow from "../../../src/components/Layoyt/LolRow"
 import LolCol from "../../../src/components/Layoyt/LolCol"
 import Vue from 'vue'
 
-Vue.component('lol-row', LolRow)
 Vue.component('lol-col', LolCol)
 
 const testData = {
