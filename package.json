@@ -5,10 +5,11 @@
   "main": "./dist/league-ui.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "test": "karma start --single-run",
-    "test:unit": "karma start",
-    "test:unit:old": "vue-cli-service test:unit",
-    "build": "vue-cli-service build --target lib --name league-ui ./src/entry.js"
+    "test:unit-watch": "karma start",
+    "test:unit": "karma start --single-run",
+    "test:unit:vue-cli": "vue-cli-service test:unit",
+    "build": "vue-cli-service build",
+    "build:ui": "vue-cli-service build --target lib --name league-ui ./src/entry.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
