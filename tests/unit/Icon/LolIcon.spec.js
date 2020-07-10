@@ -10,7 +10,7 @@ const testData = {
 }
 
 describe('LolIcon.vue', () => {
-  it('exist', () => {
+  it('should exist', () => {
     const wrapper = mount(LolIcon)
     expect(wrapper).to.exist
   })

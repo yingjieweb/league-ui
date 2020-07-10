@@ -12,7 +12,7 @@ const testData = {
 }
 
 describe('LolButton.vue', () => {
-  it('exists', () => {
+  it('should exist', () => {
     const wrapper = mount(LolButton)
     expect(wrapper).to.exist
   })
