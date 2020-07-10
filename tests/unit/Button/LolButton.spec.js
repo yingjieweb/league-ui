@@ -1,13 +1,10 @@
-import chai, {expect} from 'chai'
+import {expect} from 'chai'
 import sinon from 'sinon'
-import sinonChai from 'sinon-chai'
-import {shallowMount, mount} from '@vue/test-utils'
+import {mount} from '@vue/test-utils'
 import LolButton from "../../../src/components/Button/LolButton"
-import Vue from "vue"
-chai.use(sinonChai)
 
 const testData = {
-  iconNames: ['setting', 'add'],
+  iconNames: ['setting', 'loading'],
   iconPositions: ['left', 'right'],
   isLoading: true,
   types: ['primary', 'warning', 'danger', 'info'],
@@ -16,71 +13,74 @@ const testData = {
 
 describe('LolButton.vue', () => {
   it('exists', () => {
-    const LolButtonWrapper = shallowMount(LolButton)
-    expect(LolButtonWrapper).to.exist
+    const wrapper = mount(LolButton)
+    expect(wrapper).to.exist
   })
 
   describe('props', () => {
     it('renders props.iconName when passed', () => {
-      const wrapper = mount(LolButton, {
-        propsData: {
-          icon: 'settings'
-        }
+      const {iconNames} = testData
+      iconNames.forEach((iconName) => {
+        const wrapper = mount(LolButton, {
+          propsData: {
+            iconName: iconName
+          }
+        })
+        const useElement = wrapper.find('use')
+        expect(useElement.attributes()['href']).to.equal(`#lol-${iconName}`)
       })
-      const useElement = wrapper.find('use')
-      expect(useElement.attributes()['href']).to.equal('#i-settings')
     })
+
     it('renders props.iconPosition when passed', () => {
-      const div = document.createElement('div')
-      document.body.appendChild(div)
-      const Constructor = Vue.extend(LolButton)
-      const vm = new Constructor({
-        propsData: {
-          iconName: 'settings',
-          iconPosition: 'right'
-        }
-      }).$mount(div)
-      const icon = vm.$el.querySelector('svg')
-      expect(getComputedStyle(icon).order).to.eq('2')
-      vm.$el.remove()
-      vm.$destroy()
+      const {iconPositions} = testData
+      iconPositions.forEach((iconPosition) => {
+        const wrapper = mount(LolButton, {
+          propsData: {
+            iconName: 'setting',
+            iconPosition: iconPosition
+          }
+        })
+        expect(wrapper.classes().includes(`lol-button-icon-${iconPosition}`))
+      })
     })
+
     it('renders props.isLoading when passed', () => {
-      const Constructor = Vue.extend(LolButton)
-      const vm = new Constructor({
+      const wrapper = mount(LolButton, {
         propsData: {
           iconName: 'loading',
           isLoading: true
         }
-      }).$mount()
-      const useElements = vm.$el.querySelectorAll('use')
-      expect(useElements.length).to.equal(1)
+      })
+      const useElements = wrapper.vm.$el.querySelectorAll('use')
       expect(useElements[0].getAttribute('xlink:href')).to.equal('#lol-loading')
-      vm.$el.remove()
-      vm.$destroy()
+      const svgElement = wrapper.find('svg')
+      expect(svgElement.classes().includes(`lol-icon_loading`)).to.equal(true)
     })
+
     it('renders props.type when passed', () => {
-      const Constructor = Vue.extend(LolButton)
-      const vm = new Constructor({
-        propsData: {
-          type: 'primary'
-        }
-      }).$mount()
-      expect(vm.$el.className.includes('lol-button-primary')).to.equal(true);
-      vm.$destroy()
+      const {types} = testData
+      types.forEach((type) => {
+        const wrapper = mount(LolButton, {
+          propsData: {
+            type: type
+          }
+        })
+        expect(wrapper.classes().includes(`lol-button-${type}`)).to.equal(true)
+      })
     })
   })
 
   describe('event', () => {
-    it('can be handled', () => {
-      const Constructor = Vue.extend(LolButton)
-      const vm = new Constructor({}).$mount()
-      const callback = sinon.fake();
-      vm.$on('click', callback)
-      vm.$el.click()
-      expect(callback).to.have.been.called
-      vm.$el.remove()
-      vm.$destroy()
+    it('handles click event', () => {
+      const {events} = testData
+      const eventHandler = sinon.stub()
+      const wrapper = mount(LolButton, {
+        listeners: {
+          click: eventHandler
+        }
+      })
+      wrapper.trigger(events[0])
+      expect(eventHandler.called).to.equal(true)
     })
   })
 })
