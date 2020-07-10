@@ -55,7 +55,7 @@ describe('LolToast.vue', () => {
       })
       vm.$slots.default = `<strong id="test">hi</strong>`
       vm.$mount()
-      let strong = vm.$el.querySelector('#test')
+      let strong = vm.$el.querySelector('#tests')
       expect(strong).to.exist
     })
     it('接受 position', () => {

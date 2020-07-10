@@ -1,27 +1,34 @@
-import Vue from 'vue'
-const expect = chai.expect;
-import LolButton from "../../../src/components/Button/LolButton";
+import chai, {expect} from 'chai'
+import sinon from 'sinon'
+import sinonChai from 'sinon-chai'
+import {shallowMount, mount} from '@vue/test-utils'
+import LolButton from "../../../src/components/Button/LolButton"
+import Vue from "vue"
+chai.use(sinonChai)
 
-Vue.config.productionTip = false
-Vue.config.devtools = false
+const testData = {
+  iconNames: ['setting', 'add'],
+  iconPositions: ['left', 'right'],
+  isLoading: true,
+  types: ['primary', 'warning', 'danger', 'info'],
+  events: ['click']
+}
 
 describe('LolButton.vue', () => {
-  it('exist', () => {
-    expect(LolButton).to.exist
+  it('exists', () => {
+    const LolButtonWrapper = shallowMount(LolButton)
+    expect(LolButtonWrapper).to.exist
   })
 
   describe('props', () => {
     it('renders props.iconName when passed', () => {
-      const Constructor = Vue.extend(LolButton)
-      const vm = new Constructor({
+      const wrapper = mount(LolButton, {
         propsData: {
-          iconName: 'settings'
+          icon: 'settings'
         }
-      }).$mount()
-      const useElement = vm.$el.querySelector('use')
-      expect(useElement.getAttribute('xlink:href')).to.equal('#lol-settings')
-      vm.$el.remove()
-      vm.$destroy()
+      })
+      const useElement = wrapper.find('use')
+      expect(useElement.attributes()['href']).to.equal('#i-settings')
     })
     it('renders props.iconPosition when passed', () => {
       const div = document.createElement('div')
