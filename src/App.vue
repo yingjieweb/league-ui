@@ -105,7 +105,11 @@
 
     <section id="toastBox" style="margin-top: 50px;">
       <h2>Toast 吐司</h2>
-      <lol-button @click="showToast">toast按钮</lol-button>
+      <lol-button @click="showToast1">success</lol-button>
+      <lol-button @click="showToast2">info</lol-button>
+      <lol-button @click="showToast3">warning</lol-button>
+      <lol-button @click="showToast4">danger</lol-button>
+      <lol-button @click="showToast5">loading</lol-button>
     </section>
 
     <section style="margin-top: 50px;">
@@ -297,18 +301,79 @@
       inputChange(value) {
         console.log(value)
       },
-      showToast() {
-        this.$toast(`I am <strong>加粗文字</strong> ${parseInt(Math.random() * 100)}`, {
+      showToast1() {
+        this.$toast({
+          message: `I am <strong>成功提示</strong> ${parseInt(Math.random() * 100)}`,
+          autoClose: 50,
+          type: 'success',
+          enableHtml: true,
           closeButton: {
-            text: '知道了',
+            text: '确认',
             callback: (toast) => {
               toast.log()
-              console.log('用户知道了')
+              console.log('用户点击了确认按钮！')
             }
-          },
+          }
+        })
+      },
+      showToast2() {
+        this.$toast({
+          message: `I am <strong>提示信息</strong> ${parseInt(Math.random() * 100)}`,
+          autoClose: 50,
+          type: 'info',
           enableHtml: true,
-          position: 'middle',
-          autoClose: 10
+          closeButton: {
+            text: '确认',
+            callback: (toast) => {
+              toast.log()
+              console.log('用户点击了确认按钮！')
+            }
+          }
+        })
+      },
+      showToast3() {
+        this.$toast({
+          message: `I am <strong>警告警告</strong> ${parseInt(Math.random() * 100)}`,
+          autoClose: 50,
+          type: 'warning',
+          enableHtml: true,
+          closeButton: {
+            text: '确认',
+            callback: (toast) => {
+              toast.log()
+              console.log('用户点击了确认按钮！')
+            }
+          }
+        })
+      },
+      showToast4() {
+        this.$toast({
+          message: `I am <strong>警告警告</strong> ${parseInt(Math.random() * 100)}`,
+          autoClose: 50,
+          type: 'danger',
+          enableHtml: true,
+          closeButton: {
+            text: '确认',
+            callback: (toast) => {
+              toast.log()
+              console.log('用户点击了确认按钮！')
+            }
+          }
+        })
+      },
+      showToast5() {
+        this.$toast({
+          message: `I am <strong>加载数据ing</strong> ${parseInt(Math.random() * 100)}`,
+          autoClose: 50,
+          type: 'loading',
+          enableHtml: true,
+          closeButton: {
+            text: '确认',
+            callback: (toast) => {
+              toast.log()
+              console.log('用户点击了确认按钮！')
+            }
+          }
         })
       },
       loadData (onClickItemId, updateSource) {
