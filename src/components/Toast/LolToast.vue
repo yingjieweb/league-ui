@@ -60,7 +60,7 @@
       classes() {
         return [
             'lol-toast',
-            /*{ [`lol-toast-position-${this.position}`]: true, }*/
+            { [`lol-toast-position-${this.position}`]: true, }
         ]
       },
       iconName() {
