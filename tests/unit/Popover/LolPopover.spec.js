@@ -7,7 +7,7 @@ import Vue from 'vue'
 Vue.component('lol-button', LolButton)
 
 const testData = {
-  positions: ['top', 'down', 'right', 'left'],
+  positions: ['top', 'bottom', 'left', 'right'],
   triggers: ['click', 'hover'],
   contentSlot: `<div id="hello">Popover</div>`,
   triggerSlot: '<button>Top</button>'
