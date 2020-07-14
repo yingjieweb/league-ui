@@ -2,13 +2,9 @@
   <div id="app">
     <section style="margin-top: 50px; margin-bottom: 200px; padding: 20px;">
       <h2>Cascader 级联器</h2>
-      <lol-cascader :source.sync="cascaderDataSource1" :selected.sync="selectedCascaderData1">
-        <lol-input value="山东省"></lol-input>
-      </lol-cascader>
+      <lol-cascader :source.sync="cascaderDataSource1" :selected.sync="selectedCascaderData1" placeholder="点击选择"></lol-cascader>
       <br><br><br>
-      <lol-cascader :source.sync="cascaderDataSource2" :selected.sync="selectedCascaderData2" :load-data="loadData">
-        <lol-input value="山东省"></lol-input>
-      </lol-cascader>
+      <lol-cascader :source.sync="cascaderDataSource2" :selected.sync="selectedCascaderData2" :load-data="loadData" placeholder="点击选择"></lol-cascader>
     </section>
 
     <section style="margin-top: 50px; padding: 20px;">

@@ -1,8 +1,11 @@
 <template>
   <div class="lol-cascader" v-click-outside="close">
     <div class="lol-cascader-trigger" @click="togglePopover">
-      <slot></slot>
-      {{selectedValue}}
+      <lol-input
+              :placeholder="placeholder"
+              :readonly="true"
+              :value="selectedValue">
+      </lol-input>
     </div>
     <div v-if="isPopoverShow" class="lol-cascader-popover" :style="popoverStyles">
       <lol-cascader-list
@@ -39,6 +42,9 @@
       height: {
         type: [String, Number],
         default: 180
+      },
+      placeholder: {
+        type: String
       },
       loadData: {
         type: Function
