@@ -125,7 +125,7 @@
         z-index: 1;
       }
 
-      &[disabled], &[readonly] {
+      &[disabled] {
         border-color: #ccc;
         color: #ccc;
         cursor: not-allowed;
