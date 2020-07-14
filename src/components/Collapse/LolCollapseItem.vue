@@ -1,9 +1,9 @@
 <template>
   <div class="lol-collapse-item" @click="toggle">
-    <div class="title">
+    <div class="lol-collapse-item-title">
       {{title}}
     </div>
-    <div class="content" v-show="isOpen" ref="content">
+    <div class="lol-collapse-item-content" v-show="isOpen" ref="content">
       <slot></slot>
     </div>
   </div>
@@ -28,7 +28,7 @@
       }
     },
     mounted() {
-      this.eventBus.$on('update:selected', (names) => {
+      this.eventBus && this.eventBus.$on('update:selected', (names) => {
         // Check if this Collapse is selected
         this.isOpen = names.indexOf(this.name) > -1;
       })
@@ -53,7 +53,7 @@
   $league-box-shadow: rgba(0, 0, 0, 0.5);
 
   .lol-collapse-item {
-    > .title {
+    &-title {
       padding: 0 8px;
       margin: 2px 0;
       min-height: 32px;
@@ -63,7 +63,7 @@
       color: white;
     }
 
-    > .content {
+    &-content {
       padding: 8px;
       border: 1px solid $league-gold;
       background: $league-dark;
