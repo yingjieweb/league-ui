@@ -2,3 +2,7 @@
 /src/
 /tests/
 /coverage/
+
+/babel.config.js
+/karma.conf.js
+/.travis.yml
