@@ -190,7 +190,7 @@
       flex-shrink: 0;
     }
 
-    &-position-top {top: 0; transform: translateX(-50%);}
+    &-position-top {top: 20px; transform: translateX(-50%);}
     &-position-middle {top: 50%; transform: translate(-50%, -50%);}
     &-position-bottom {bottom: 0; transform: translateX(-50%);}
   }

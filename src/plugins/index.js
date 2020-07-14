@@ -1,5 +1,5 @@
 // Import Plugins
-import $lolToast from './toast'
+import $lolToast from './lolToast'
 
 // Plugins
 export default {

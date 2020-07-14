@@ -4,7 +4,7 @@ let currentToast
 
 export default {
   install(Vue, options) {
-    Vue.prototype.$toast = function (toastOptions) {
+    Vue.prototype.$lolToast = function (toastOptions) {
       if (currentToast) {
         currentToast.close()
       }
