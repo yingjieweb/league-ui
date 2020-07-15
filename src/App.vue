@@ -1,6 +1,26 @@
 <template>
   <div id="app">
     <section style="margin-top: 50px; margin-bottom: 200px; padding: 20px;">
+      <h2>Badge 标签</h2>
+
+      <lol-badge title="99+">
+        <span>LOOTBOX</span>
+      </lol-badge>
+      <br>
+      <lol-badge title="NEW">
+        <span>HIGHLIGHTS</span>
+      </lol-badge>
+      <br>
+      <lol-badge :is-dot="true">
+        <span>LOOTBOX</span>
+      </lol-badge>
+      <br>
+      <lol-badge :is-dot="true">
+        <span>HIGHLIGHTS</span>
+      </lol-badge>
+    </section>
+
+    <section style="margin-top: 50px; margin-bottom: 200px; padding: 20px;">
       <h2>Heroes 英雄</h2>
       <lol-hero v-for="hero in heroes" :key="hero" :hero="hero"></lol-hero>
       <lol-hero hero="Vi" size="small"></lol-hero>

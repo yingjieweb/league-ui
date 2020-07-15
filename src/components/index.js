@@ -22,6 +22,7 @@ import LolCollapseItem from "./Collapse/LolCollapseItem"
 import LolCascader from "./Cascader/LolCascader"
 import LolCascaderList from "./Cascader/LolCascaderList"
 import LolHero from "./Hero/LolHero"
+import LolBadge from "./Badge/LolBadge"
 
 export default {
   LolIcon,
@@ -34,5 +35,6 @@ export default {
   LolPopover,
   LolCollapse, LolCollapseItem,
   LolCascader, LolCascaderList,
-  LolHero
+  LolHero,
+  LolBadge
 }
