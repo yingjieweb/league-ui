@@ -1,6 +1,15 @@
 <template>
   <div id="app">
     <section style="margin-top: 50px; margin-bottom: 200px; padding: 20px;">
+      <h2>Heroes 英雄</h2>
+      <lol-hero v-for="hero in heroes" :key="hero" :hero="hero"></lol-hero>
+      <lol-hero hero="Vi" size="small"></lol-hero>
+      <lol-hero hero="Vi" size="middle"></lol-hero>
+      <lol-hero hero="Vi" size="large"></lol-hero>
+      <lol-hero hero="Vi" size="large" :is-active="true"></lol-hero>
+    </section>
+
+    <section style="margin-top: 50px; margin-bottom: 200px; padding: 20px;">
       <h2>Cascader 级联器</h2>
       <lol-cascader :source.sync="cascaderDataSource1" :selected.sync="selectedCascaderData1" placeholder="点击选择"></lol-cascader>
       <br><br><br>
@@ -284,7 +293,19 @@
               {name: '学校区'}
             ]
           }]
-        }]
+        }],
+        heroes: ['Annie', 'Olaf', 'Galio', 'TwistedFate', 'XinZhao', 'Urgot', 'Leblanc', 'Vladimir', 'FiddleSticks', 'Kayle', 'MasterYi', 'Alistar', 'Ryze',
+        'Sion', 'Sivir', 'Soraka', 'Teemo', 'Tristana', 'Warwick', 'Nunu', 'MissFortune', 'Ashe', 'Tryndamere', 'Jax', 'Morgana', 'Zilean',
+        'Singed', 'Evelynn', 'Twitch', 'Karthus', 'Chogath', 'Amumu', 'Rammus', 'Anivia', 'Shaco', 'DrMundo', 'Sona', 'Kassadin', 'Irelia',
+        'Janna', 'Gangplank', 'Corki', 'Karma', 'Taric', 'Veigar', 'Trundle', 'Swain', 'Caitlyn', 'Blitzcrank', 'Malphite', 'Katarina', 'Nocturne',
+        'Maokai', 'Renekton', 'JarvanIV', 'Elise', 'Orianna', 'MonkeyKing', 'Brand', 'LeeSin', 'Vayne', 'Rumble', 'Cassiopeia', 'Skarner', 'Heimerdinger',
+        'Nasus', 'Nidalee', 'Udyr', 'Poppy', 'Gragas', 'Pantheon', 'Ezreal', 'Mordekaiser', 'Yorick', 'Akali', 'Kennen', 'Garen', 'Leona',
+        'Malzahar', 'Talon', 'Riven', 'KogMaw', 'Shen', 'Lux', 'Xerath', 'Shyvana', 'Ahri', 'Graves', 'Fizz', 'Volibear', 'Rengar',
+        'Varus', 'Nautilus', 'Viktor', 'Sejuani', 'Fiora', 'Ziggs', 'Lulu', 'Draven', 'Hecarim', 'Khazix', 'Darius', 'Jayce', 'Lissandra',
+        'Diana', 'Quinn', 'Syndra', 'AurelionSol', 'Kayn', 'Zoe', 'Zyra', 'Kaisa', 'Gnar', 'Zac', 'Yasuo', 'Velkoz', 'Taliyah',
+        'Camille', 'Braum', 'Jhin', 'Kindred', 'Jinx', 'TahmKench', 'Senna', 'Lucian', 'Zed', 'Kled', 'Ekko', 'Qiyana', 'Vi',
+        'Aatrox', 'Nami', 'Azir', 'Yuumi', 'Thresh', 'Illaoi', 'RekSai', 'Ivern', 'Kalista', 'Bard', 'Rakan', 'Xayah', 'Ornn',
+        'Sylas', 'Neeko', 'Aphelios', 'Pyke', 'Sett']
       }
     },
     created() {
