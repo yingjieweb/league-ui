@@ -73,8 +73,8 @@
       background-size: cover;
     }
 
-    & + & {
+    /*& + & {
       margin-left: 10px;
-    }
+    }*/
   }
 </style>
