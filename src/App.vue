@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <section style="margin-top: 50px; margin-bottom: 200px;">
+      <lol-switch v-model.sync="switchStatus"></lol-switch>
+    </section>
+
+    <section style="margin-top: 50px; margin-bottom: 200px;">
       <lol-carousel>
         <lol-carousel-item>
           <div class="item">111</div>
@@ -333,7 +337,8 @@
         'Diana', 'Quinn', 'Syndra', 'AurelionSol', 'Kayn', 'Zoe', 'Zyra', 'Kaisa', 'Gnar', 'Zac', 'Yasuo', 'Velkoz', 'Taliyah',
         'Camille', 'Braum', 'Jhin', 'Kindred', 'Jinx', 'TahmKench', 'Senna', 'Lucian', 'Zed', 'Kled', 'Ekko', 'Qiyana', 'Vi',
         'Aatrox', 'Nami', 'Azir', 'Yuumi', 'Thresh', 'Illaoi', 'RekSai', 'Ivern', 'Kalista', 'Bard', 'Rakan', 'Xayah', 'Ornn',
-        'Sylas', 'Neeko', 'Aphelios', 'Pyke', 'Sett']
+        'Sylas', 'Neeko', 'Aphelios', 'Pyke', 'Sett'],
+        switchStatus: false
       }
     },
     created() {
