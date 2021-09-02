@@ -23,6 +23,8 @@ import LolCascader from "./Cascader/LolCascader"
 import LolCascaderList from "./Cascader/LolCascaderList"
 import LolHero from "./Hero/LolHero"
 import LolBadge from "./Badge/LolBadge"
+import LolCarousel from "./Carousel/LolCarousel"
+import LolCarouselItem from "./Carousel/LolCarouselItem"
 
 export default {
   LolIcon,
@@ -36,5 +38,7 @@ export default {
   LolCollapse, LolCollapseItem,
   LolCascader, LolCascaderList,
   LolHero,
-  LolBadge
+  LolBadge,
+  LolCarousel,
+  LolCarouselItem
 }

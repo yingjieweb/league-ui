@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    <section style="margin-top: 50px; margin-bottom: 200px;">
+      <lol-carousel>
+        <lol-carousel-item>
+          <div class="item">111</div>
+        </lol-carousel-item>
+      </lol-carousel>
+    </section>
+
     <section style="margin-top: 50px; margin-bottom: 200px; padding: 20px;">
       <h2>Badge 标签</h2>
 
