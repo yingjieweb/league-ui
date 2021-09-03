@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <section style="margin-top: 50px; margin-bottom: 200px;">
-      <lol-switch v-model.sync="switchStatus"></lol-switch>
+    <section style="width: 400px; display: flex; justify-content: space-evenly; margin-top: 50px; margin-bottom: 200px;">
+      <lol-switch v-model="switchStatus1"></lol-switch>
+      <lol-switch v-model="switchStatus2" disabled></lol-switch>
+      <lol-switch v-model="switchStatus3" activeColor="green"></lol-switch>
+      <lol-switch v-model="switchStatus4" inactiveColor="#E6A23C"></lol-switch>
     </section>
 
     <section style="margin-top: 50px; margin-bottom: 200px;">
@@ -338,7 +341,11 @@
         'Camille', 'Braum', 'Jhin', 'Kindred', 'Jinx', 'TahmKench', 'Senna', 'Lucian', 'Zed', 'Kled', 'Ekko', 'Qiyana', 'Vi',
         'Aatrox', 'Nami', 'Azir', 'Yuumi', 'Thresh', 'Illaoi', 'RekSai', 'Ivern', 'Kalista', 'Bard', 'Rakan', 'Xayah', 'Ornn',
         'Sylas', 'Neeko', 'Aphelios', 'Pyke', 'Sett'],
-        switchStatus: false
+        switchStatus1: true,
+        switchStatus2: true,
+        switchStatus3: true,
+        switchStatus4: false,
+        switchStatus5: true
       }
     },
     created() {
