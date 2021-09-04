@@ -1,7 +1,13 @@
 <template>
-  <div :class="classes" @click="toggleStatus" ref="outer">
+  <div
+    ref="outer"
+    :class="classes"
+    :style="outerStyles"
+    @click="toggleStatus"
+    @mousedown="setActiveStyles"
+    @mouseup="setInactiveStyles">
     <span class="mask" v-show="disabled"></span>
-    <span class="inner"></span>
+    <span ref="inner" class="inner" :style="innerStyles"></span>
   </div>
 </template>
 
@@ -25,6 +31,14 @@
         type: String,
         default: '#E4E7ED'
       },
+      width: {
+        type: Number,
+        default: 44
+      },
+      height: {
+        type: Number,
+        default: 22,
+      }
     },
     computed: {
       classes() {
@@ -34,9 +48,27 @@
           {disabled: this.disabled}
         ]
       },
+      outerStyles() {
+        return {
+          'width': this.width + 'px',
+          height: this.height + 'px',
+          borderRadius: this.height / 2 + 'px'
+        }
+      },
+      maskStyles() {
+        return { borderRadius: this.height / 2 + 'px' }
+      },
+      innerStyles() {
+        return {
+          'width': this.height - 4 + 'px',
+          height: this.height - 4 + 'px',
+          borderRadius: this.height / 2 + 'px'
+        }
+      }
     },
     watch: {
       value() {
+        this.setInnerStyles()
         this.setBackgroundColor()
       }
     },
@@ -46,27 +78,44 @@
         this.$emit("input", !this.value);
         this.$emit("change", !this.value);
       },
+      setActiveStyles() {
+        if (this.value) {
+          this.$refs.inner.style.width = this.height + 'px';
+          this.$refs.inner.style.marginLeft = '-4px';
+        } else {
+          this.$refs.inner.style.width = this.height + 'px';
+          this.$refs.inner.style.marginLeft = '0px';
+        }
+      },
+      setInactiveStyles() {
+        this.$refs.inner.style.width = this.height - 4 + 'px';
+        this.$refs.inner.style.marginLeft = '0px';
+      },
       setBackgroundColor() {
         let newColor = this.value ? this.activeColor : this.inactiveColor;
         this.$refs.outer.style.backgroundColor = newColor;
+      },
+      setInnerStyles() {
+        if (this.height > this.width/2) {
+          throw "The width must be greater than twice the height";
+        } else {
+          let newLeft = this.value ? this.width - this.height + 2 : 2;
+          this.$refs.inner.style.top = '2px';
+          this.$refs.inner.style.left = newLeft + 'px';
+        }
       }
     },
     mounted() {
+      this.setInnerStyles()
       this.setBackgroundColor()
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  $height: 22px;
-  $height2: $height - 4px;
-
   .lol-switch {
-    height: $height;
-    width: $height * 2;
     border: none;
     background: #bfbfbf;
-    border-radius: $height / 2;
     position: relative;
     cursor: pointer;
 
@@ -76,7 +125,6 @@
       right: 0;
       bottom: 0;
       left: 0;
-      border-radius: $height2 / 2;
       background-color: ghostwhite;
       opacity: .6;
       z-index: 2;
@@ -84,32 +132,8 @@
 
     > .inner {
       position: absolute;
-      top: 2px;
-      left: 2px;
-      height: $height2;
-      width: $height2;
       background: white;
-      border-radius: $height2 / 2;
       transition: all 250ms;
-    }
-
-    &.checked {
-      > .inner {
-        left: calc(100% - #{$height2} - 2px);
-      }
-    }
-
-    &:active {
-      > .inner {
-        width: $height2 + 4px;
-      }
-    }
-
-    &.checked:active {
-      > .inner {
-        width: $height2 + 4px;
-        margin-left: -4px;
-      }
     }
 
     &.disabled {

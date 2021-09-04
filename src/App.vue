@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <section style="width: 400px; display: flex; justify-content: space-evenly; margin-top: 50px; margin-bottom: 200px;">
+    <section style="width: 800px; display: flex; justify-content: space-around; margin-top: 50px; margin-bottom: 20px;">
       <lol-switch v-model="switchStatus1"></lol-switch>
       <lol-switch v-model="switchStatus2" disabled></lol-switch>
-      <lol-switch v-model="switchStatus3" activeColor="green"></lol-switch>
-      <lol-switch v-model="switchStatus4" inactiveColor="#E6A23C"></lol-switch>
+      <lol-switch v-model="switchStatus3" disabled></lol-switch>
+      <lol-switch v-model="switchStatus4" activeColor="green"></lol-switch>
+      <lol-switch v-model="switchStatus5" inactiveColor="#E6A23C"></lol-switch>
+      <lol-switch v-model="switchStatus6" :width="100" :height="50"></lol-switch>
+      <lol-switch v-model="switchStatus7" :width="150" :height="75" ></lol-switch>
     </section>
 
     <section style="margin-top: 50px; margin-bottom: 200px;">
       <lol-carousel>
         <lol-carousel-item>
+          <div class="item">111</div>
           <div class="item">111</div>
         </lol-carousel-item>
       </lol-carousel>
@@ -343,9 +347,11 @@
         'Sylas', 'Neeko', 'Aphelios', 'Pyke', 'Sett'],
         switchStatus1: true,
         switchStatus2: true,
-        switchStatus3: true,
+        switchStatus3: false,
         switchStatus4: false,
-        switchStatus5: true
+        switchStatus5: true,
+        switchStatus6: true,
+        switchStatus7: true,
       }
     },
     created() {
