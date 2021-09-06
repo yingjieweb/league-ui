@@ -113,7 +113,7 @@
 
 <style lang="scss" scoped>
   .lol-switch {
-    border: none;
+    display: inline-block;
     background: #bfbfbf;
     position: relative;
     cursor: pointer;

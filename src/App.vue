@@ -10,8 +10,8 @@
       <lol-switch v-model="switchStatus3" disabled></lol-switch>
       <lol-switch v-model="switchStatus4" activeColor="green"></lol-switch>
       <lol-switch v-model="switchStatus5" inactiveColor="#E6A23C"></lol-switch>
-      <lol-switch v-model="switchStatus6" :width="100" :height="50"></lol-switch>
-      <lol-switch v-model="switchStatus7" :width="150" :height="75" ></lol-switch>
+      <lol-switch v-model="switchStatus6" :width="60" :height="30"></lol-switch>
+      <lol-switch v-model="switchStatus7" :width="80" :height="40" ></lol-switch>
     </section>
 
     <section style="margin-top: 50px; margin-bottom: 200px;">
