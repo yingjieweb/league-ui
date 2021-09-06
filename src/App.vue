@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <section style="margin-top: 50px; margin-bottom: 200px;">
+      <lol-progress></lol-progress>
+    </section>
+
     <section style="width: 800px; display: flex; justify-content: space-around; margin-top: 50px; margin-bottom: 20px;">
       <lol-switch v-model="switchStatus1"></lol-switch>
       <lol-switch v-model="switchStatus2" disabled></lol-switch>

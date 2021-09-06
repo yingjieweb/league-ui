@@ -26,6 +26,7 @@ import LolBadge from "./Badge/LolBadge"
 import LolCarousel from "./Carousel/LolCarousel"
 import LolCarouselItem from "./Carousel/LolCarouselItem"
 import LolSwitch from "./Switch/LolSwitch"
+import LolProgress from "./Progress/LolProgress"
 
 export default {
   LolIcon,
@@ -42,5 +43,6 @@ export default {
   LolBadge,
   LolCarousel,
   LolCarouselItem,
-  LolSwitch
+  LolSwitch,
+  LolProgress
 }
