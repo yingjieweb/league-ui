@@ -6,7 +6,6 @@
     @click="toggleStatus"
     @mousedown="setActiveStyles"
     @mouseup="setInactiveStyles">
-    <span class="mask" v-show="disabled"></span>
     <span ref="inner" class="inner" :style="innerStyles"></span>
   </div>
 </template>
@@ -119,17 +118,6 @@
     position: relative;
     cursor: pointer;
 
-    > .mask {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: ghostwhite;
-      opacity: .6;
-      z-index: 2;
-    }
-
     > .inner {
       position: absolute;
       background: white;
@@ -137,6 +125,7 @@
     }
 
     &.disabled {
+      opacity: .6;
       cursor: not-allowed;
     }
   }
