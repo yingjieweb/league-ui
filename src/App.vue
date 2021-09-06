@@ -1,7 +1,15 @@
 <template>
   <div id="app">
     <section style="margin-top: 50px; margin-bottom: 200px;">
-      <lol-progress></lol-progress>
+      <lol-progress width="200" height="20"></lol-progress>
+      <lol-progress width="200" height="20" percentage="50"></lol-progress>
+      <lol-progress width="200" height="20" percentage="60" activeColor="green"></lol-progress>
+      <lol-progress width="200" height="20" percentage="70" activeColor="linear-gradient(90deg, #C568F9 0%, #9337F1 100%)"></lol-progress>
+      <lol-progress width="200" height="20" percentage="80" inactiveColor="#E6A23C"></lol-progress>
+      <lol-progress width="200" height="20" percentage="70" textColor="purple"></lol-progress>
+      <lol-progress width="200" height="20" percentage="70" textPosition="inside"></lol-progress>
+      <lol-progress width="200" height="20" percentage="70" textPosition="follow"></lol-progress>
+      <lol-progress width="200" height="20" textPosition="outside"></lol-progress>
     </section>
 
     <section style="width: 800px; display: flex; justify-content: space-around; margin-top: 50px; margin-bottom: 20px;">
@@ -10,8 +18,8 @@
       <lol-switch v-model="switchStatus3" disabled></lol-switch>
       <lol-switch v-model="switchStatus4" activeColor="green"></lol-switch>
       <lol-switch v-model="switchStatus5" inactiveColor="#E6A23C"></lol-switch>
-      <lol-switch v-model="switchStatus6" :width="60" :height="30"></lol-switch>
-      <lol-switch v-model="switchStatus7" :width="80" :height="40" ></lol-switch>
+      <lol-switch v-model="switchStatus6" width="60" height="30"></lol-switch>
+      <lol-switch v-model="switchStatus7" width="80" height="40" ></lol-switch>
     </section>
 
     <section style="margin-top: 50px; margin-bottom: 200px;">
