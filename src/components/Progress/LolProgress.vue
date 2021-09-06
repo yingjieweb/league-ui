@@ -42,6 +42,10 @@
         type: Number | String,
         default: 22,
       },
+      textWeight: {
+        type: Number | String,
+        default: 40,
+      },
       textPosition: {
         type: String,
         default: 'inside' // inside follow outside
@@ -67,6 +71,8 @@
       textStyles() {
         return {
           color: this.textColor,
+          fontSize: this.textSize + 'px',
+          fontWeight: this.textWeight,
           lineHeight: this.height + 'px',
         }
       }

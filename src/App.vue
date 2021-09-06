@@ -3,7 +3,7 @@
     <section style="margin-top: 50px; margin-bottom: 200px;">
       <lol-progress width="200" height="20"></lol-progress>
       <lol-progress width="200" height="20" percentage="50"></lol-progress>
-      <lol-progress width="200" height="20" percentage="60" activeColor="green"></lol-progress>
+      <lol-progress width="200" height="20" percentage="60" activeColor="gold"></lol-progress>
       <lol-progress width="200" height="20" percentage="70" activeColor="linear-gradient(90deg, #C568F9 0%, #9337F1 100%)"></lol-progress>
       <lol-progress width="200" height="20" percentage="80" inactiveColor="#E6A23C"></lol-progress>
       <lol-progress width="200" height="20" percentage="70" textColor="purple"></lol-progress>
