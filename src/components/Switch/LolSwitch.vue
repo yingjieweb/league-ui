@@ -14,6 +14,14 @@
   export default {
     name: "LolSwitch",
     props: {
+      width: {
+        type: Number | String,
+        default: 44
+      },
+      height: {
+        type: Number | String,
+        default: 22,
+      },
       value: {
         type: Boolean,
         default: true
@@ -29,14 +37,6 @@
       inactiveColor: {
         type: String,
         default: '#E4E7ED'
-      },
-      width: {
-        type: Number,
-        default: 44
-      },
-      height: {
-        type: Number,
-        default: 22,
       }
     },
     computed: {
@@ -49,17 +49,14 @@
       },
       outerStyles() {
         return {
-          'width': this.width + 'px',
+          width: this.width + 'px',
           height: this.height + 'px',
           borderRadius: this.height / 2 + 'px'
         }
       },
-      maskStyles() {
-        return { borderRadius: this.height / 2 + 'px' }
-      },
       innerStyles() {
         return {
-          'width': this.height - 4 + 'px',
+          width: this.height - 4 + 'px',
           height: this.height - 4 + 'px',
           borderRadius: this.height / 2 + 'px'
         }
