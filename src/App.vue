@@ -23,10 +23,15 @@
     </section>
 
     <section style="margin-top: 50px; margin-bottom: 200px;">
-      <lol-carousel>
-        <lol-carousel-item>
-          <div class="item">111</div>
-          <div class="item">111</div>
+      <lol-carousel :selected.sync="carouselSelected">
+        <lol-carousel-item name="1">
+          <div class="box">1</div>
+        </lol-carousel-item>
+        <lol-carousel-item name="2">
+          <div class="box">2</div>
+        </lol-carousel-item>
+        <lol-carousel-item name="3">
+          <div class="box">3</div>
         </lol-carousel-item>
       </lol-carousel>
     </section>
@@ -364,6 +369,7 @@
         switchStatus5: true,
         switchStatus6: true,
         switchStatus7: true,
+        carouselSelected: '1',
       }
     },
     created() {
