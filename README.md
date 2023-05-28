@@ -23,7 +23,7 @@ $ npm install league-ui --save
 ```
 
 ## Note
-This UI library will reset some styles as followed. I strongly recommend you to add these styles to all of your projects for saving time to find CSS bugs :)
+This UI library will reset some styles as followed. I strongly recommend you add these styles to all of your projects for saving time to find CSS bugs :)
 ```css
 * {
     margin: 0;
@@ -33,6 +33,5 @@ This UI library will reset some styles as followed. I strongly recommend you to 
 ```
 
 ## Copyright Statement
-I love playing League of Legends, so I built this just for fun but not for commercial purpose.
-**Please note: some images, logos are from League of Legends made by Riot Games. If you want to use this lib for commercial purpose,
-you have to obey those licences and place a proper licence for your project.**
+I love playing League of Legends, so I built this just for fun but not for commercial purposes.
+**Please note: some images and logos are from League of Legends made by Riot Games. If you want to use this lib for commercial purposes, you have to obey those licenses and place a proper license for your project.**
