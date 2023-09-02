@@ -1,10 +1,14 @@
 {
-  "name": "league-ui",
+  "name": "@yingjieweb/league-ui",
   "version": "0.2.5",
   "description": "A Vue.js component library for League of Legends",
   "author": "yingjieweb",
   "private": false,
   "main": "dist/league-ui.umd.min.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/yingjieweb"
+  },
+  "repository": "https://github.com/yingjieweb/league-ui",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "test:unit-watch": "karma start",
