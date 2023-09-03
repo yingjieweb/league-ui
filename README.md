@@ -9,11 +9,12 @@
     <a href="https://github.com/yingjieweb/league-ui"><img src="https://img.shields.io/github/license/yingjieweb/league-ui" alt="License"></a>
     <a href="https://github.com/yingjieweb/league-ui"><img src="https://img.shields.io/github/stars/yingjieweb/league-ui?style=social" alt="GitHub Stars"></a>
 </p>
-<h3 align="center">League UI library for Web APP, built with Vue.js.</h3>
+<h3 align="center">League UI library for Web APP, built with Vue.js. 🎉</h3>
 
---------
+---
 
 ## Install
+
 ```
 $ yarn add league-ui
 
@@ -23,15 +24,19 @@ $ npm install league-ui --save
 ```
 
 ## Note
-This UI library will reset some styles as followed. I strongly recommend you add these styles to all of your projects for saving time to find CSS bugs :)
+
+This UI library will reset some styles as follows. I strongly recommend you add these styles to all of your projects to save time in finding CSS bugs 🤓️
+
 ```css
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 ```
 
 ## Copyright Statement
-I love playing League of Legends, so I built this just for fun but not for commercial purposes.
+
+I love playing League of Legends, so I built this just for fun not for commercial purposes. 🐒
+
 **Please note: some images and logos are from League of Legends made by Riot Games. If you want to use this lib for commercial purposes, you have to obey those licenses and place a proper license for your project.**
